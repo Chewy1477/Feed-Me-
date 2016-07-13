@@ -12,6 +12,8 @@
 		C33F49F31D3435B000D1CC81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C33F49F21D3435B000D1CC81 /* Assets.xcassets */; };
 		C33F49F61D3435B000D1CC81 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C33F49F41D3435B000D1CC81 /* LaunchScreen.storyboard */; };
 		C35983F51D3601AD005D3062 /* DonateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35983F41D3601AD005D3062 /* DonateViewController.swift */; };
+		C35EAB0C1D36DE3F000F59A5 /* ParseLoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35EAB0B1D36DE3F000F59A5 /* ParseLoginHelper.swift */; };
+		C35EAB0F1D36DED7000F59A5 /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35EAB0E1D36DED7000F59A5 /* ErrorHandling.swift */; };
 		C37AE2DC1D359C5B00F3C0B0 /* ContributionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37AE2DB1D359C5B00F3C0B0 /* ContributionViewController.swift */; };
 		C37AE2DE1D359C7500F3C0B0 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37AE2DD1D359C7500F3C0B0 /* UserViewController.swift */; };
 		D494E3BB9F1CBB98CA2F430B /* Pods_Feed_Me_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A4CAB8F47B73EE4AE9772B /* Pods_Feed_Me_.framework */; };
@@ -29,6 +31,8 @@
 		C33F49F51D3435B000D1CC81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C33F49F71D3435B000D1CC81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C35983F41D3601AD005D3062 /* DonateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DonateViewController.swift; sourceTree = "<group>"; };
+		C35EAB0B1D36DE3F000F59A5 /* ParseLoginHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseLoginHelper.swift; sourceTree = "<group>"; };
+		C35EAB0E1D36DED7000F59A5 /* ErrorHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHandling.swift; sourceTree = "<group>"; };
 		C37AE2DB1D359C5B00F3C0B0 /* ContributionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContributionViewController.swift; sourceTree = "<group>"; };
 		C37AE2DD1D359C7500F3C0B0 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -74,6 +78,7 @@
 		C33F49EA1D3435B000D1CC81 /* Feed Me! */ = {
 			isa = PBXGroup;
 			children = (
+				C35EAB0D1D36DE44000F59A5 /* Helpers */,
 				C37AE2DA1D359C4400F3C0B0 /* View Controllers */,
 				C32BDE401D35B78F0096678F /* Feed-Me-Bridgin-Header.h */,
 				C33F49EB1D3435B000D1CC81 /* AppDelegate.swift */,
@@ -83,6 +88,15 @@
 				C33F49F71D3435B000D1CC81 /* Info.plist */,
 			);
 			path = "Feed Me!";
+			sourceTree = "<group>";
+		};
+		C35EAB0D1D36DE44000F59A5 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				C35EAB0E1D36DED7000F59A5 /* ErrorHandling.swift */,
+				C35EAB0B1D36DE3F000F59A5 /* ParseLoginHelper.swift */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 		C37AE2DA1D359C4400F3C0B0 /* View Controllers */ = {
@@ -228,7 +242,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C37AE2DE1D359C7500F3C0B0 /* UserViewController.swift in Sources */,
+				C35EAB0C1D36DE3F000F59A5 /* ParseLoginHelper.swift in Sources */,
 				C33F49EC1D3435B000D1CC81 /* AppDelegate.swift in Sources */,
+				C35EAB0F1D36DED7000F59A5 /* ErrorHandling.swift in Sources */,
 				C37AE2DC1D359C5B00F3C0B0 /* ContributionViewController.swift in Sources */,
 				C35983F51D3601AD005D3062 /* DonateViewController.swift in Sources */,
 			);
