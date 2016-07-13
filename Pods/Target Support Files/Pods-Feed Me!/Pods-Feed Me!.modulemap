@@ -1,0 +1,6 @@
+framework module Pods_Feed_Me_ {
+  umbrella header "Pods-Feed Me!-umbrella.h"
+
+  export *
+  module * { export * }
+}
