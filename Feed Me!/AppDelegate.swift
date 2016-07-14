@@ -42,8 +42,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Set up the Parse SDK
         let configuration = ParseClientConfiguration {
-            $0.applicationId = "makestagram"
-            $0.server = "https://makestagram-parse-chc.herokuapp.com/parse"
+            $0.applicationId = "feed-me"
+            $0.server = "https://feed-me-parse-chc.herokuapp.com/parse"
         }
         Parse.initializeWithConfiguration(configuration)
         
@@ -72,6 +72,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             loginViewController.fields = [.UsernameAndPassword, .LogInButton, .SignUpButton, .PasswordForgotten, .Facebook]
             loginViewController.delegate = parseLoginHelper
             loginViewController.signUpController?.delegate = parseLoginHelper
+            
+            let logoLogin = UILabel()
+            logoLogin.text = "Feed Me!"
+            logoLogin.font = UIFont(name: "Arial", size: 50)
+            
+            let logoSign = UILabel()
+            logoSign.text = "Sign Up!"
+            logoSign.font = UIFont(name: "Arial", size: 50)
+            
+            
+            loginViewController.logInView?.logo = logoLogin
+            loginViewController.signUpController?.signUpView?.logo = logoSign
+            
+            loginViewController.logInView!.logo!.sizeToFit()
+            loginViewController.signUpController?.signUpView!.logo!.sizeToFit()
+            
+            let logoFrame = loginViewController.signUpController!.signUpView!.logo!.frame
+            
+            
+           loginViewController.signUpController!.signUpView!.logo!.frame = CGRectMake(logoFrame.origin.x, loginViewController.signUpController!.signUpView!.usernameField!.frame.origin.y - logoFrame.height - 60, loginViewController.signUpController!.signUpView!.frame.width,  logoFrame.height)
+
+            
+            
             
             startViewController = loginViewController
         }
