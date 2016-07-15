@@ -249,10 +249,10 @@
             </objects>
             <point key="canvasLocation" x="688" y="1361"/>
         </scene>
-        <!--View Controller-->
+        <!--User View Controller-->
         <scene sceneID="JAC-KJ-Ku5">
             <objects>
-                <viewController id="yvr-bK-bP2" sceneMemberID="viewController">
+                <viewController id="yvr-bK-bP2" customClass="UserViewController" customModule="Feed_Me_" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Iel-G9-f1P"/>
                         <viewControllerLayoutGuide type="bottom" id="K9t-2a-6aK"/>
@@ -268,7 +268,13 @@
                                     <constraint firstAttribute="width" constant="600" id="hWQ-qe-SmR"/>
                                 </constraints>
                                 <items>
-                                    <navigationItem title="User" id="9WF-Tq-TQd"/>
+                                    <navigationItem title="User" id="9WF-Tq-TQd">
+                                        <barButtonItem key="leftBarButtonItem" title="Sign Out" id="unl-wm-IyB">
+                                            <connections>
+                                                <action selector="signOutButton:" destination="yvr-bK-bP2" id="3Pf-ZF-c19"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                         </subviews>

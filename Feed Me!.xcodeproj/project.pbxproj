@@ -14,6 +14,8 @@
 		C35983F51D3601AD005D3062 /* DonateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35983F41D3601AD005D3062 /* DonateViewController.swift */; };
 		C35EAB0F1D36DED7000F59A5 /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35EAB0E1D36DED7000F59A5 /* ErrorHandling.swift */; };
 		C35EAB431D37064E000F59A5 /* ParseLoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35EAB421D37064E000F59A5 /* ParseLoginHelper.swift */; };
+		C35EAB4B1D3828EF000F59A5 /* Pacifico.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C35EAB4A1D3828EF000F59A5 /* Pacifico.ttf */; };
+		C35EAB511D3863D9000F59A5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35EAB501D3863D9000F59A5 /* LoginViewController.swift */; };
 		C37AE2DC1D359C5B00F3C0B0 /* ContributionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37AE2DB1D359C5B00F3C0B0 /* ContributionViewController.swift */; };
 		C37AE2DE1D359C7500F3C0B0 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37AE2DD1D359C7500F3C0B0 /* UserViewController.swift */; };
 		D494E3BB9F1CBB98CA2F430B /* Pods_Feed_Me_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A4CAB8F47B73EE4AE9772B /* Pods_Feed_Me_.framework */; };
@@ -33,7 +35,8 @@
 		C35983F41D3601AD005D3062 /* DonateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DonateViewController.swift; sourceTree = "<group>"; };
 		C35EAB0E1D36DED7000F59A5 /* ErrorHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHandling.swift; sourceTree = "<group>"; };
 		C35EAB421D37064E000F59A5 /* ParseLoginHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseLoginHelper.swift; sourceTree = "<group>"; };
-		C35EAB461D376757000F59A5 /* Pacifico.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Pacifico.ttf; sourceTree = "<group>"; };
+		C35EAB4A1D3828EF000F59A5 /* Pacifico.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Pacifico.ttf; sourceTree = "<group>"; };
+		C35EAB501D3863D9000F59A5 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C37AE2DB1D359C5B00F3C0B0 /* ContributionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContributionViewController.swift; sourceTree = "<group>"; };
 		C37AE2DD1D359C7500F3C0B0 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -87,7 +90,7 @@
 				C33F49F21D3435B000D1CC81 /* Assets.xcassets */,
 				C33F49F41D3435B000D1CC81 /* LaunchScreen.storyboard */,
 				C33F49F71D3435B000D1CC81 /* Info.plist */,
-				C35EAB461D376757000F59A5 /* Pacifico.ttf */,
+				C35EAB4A1D3828EF000F59A5 /* Pacifico.ttf */,
 			);
 			path = "Feed Me!";
 			sourceTree = "<group>";
@@ -107,6 +110,7 @@
 				C35983F41D3601AD005D3062 /* DonateViewController.swift */,
 				C37AE2DB1D359C5B00F3C0B0 /* ContributionViewController.swift */,
 				C37AE2DD1D359C7500F3C0B0 /* UserViewController.swift */,
+				C35EAB501D3863D9000F59A5 /* LoginViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -184,6 +188,7 @@
 			files = (
 				C33F49F61D3435B000D1CC81 /* LaunchScreen.storyboard in Resources */,
 				C33F49F31D3435B000D1CC81 /* Assets.xcassets in Resources */,
+				C35EAB4B1D3828EF000F59A5 /* Pacifico.ttf in Resources */,
 				C33F49F11D3435B000D1CC81 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -243,6 +248,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C35EAB511D3863D9000F59A5 /* LoginViewController.swift in Sources */,
 				C37AE2DE1D359C7500F3C0B0 /* UserViewController.swift in Sources */,
 				C35EAB431D37064E000F59A5 /* ParseLoginHelper.swift in Sources */,
 				C33F49EC1D3435B000D1CC81 /* AppDelegate.swift in Sources */,
@@ -368,7 +374,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Feed Me!/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.MakeSchool.Feed-Me-";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.chrischueh.feed-me";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Feed-Me-Bridgin-Header.h";
@@ -384,7 +390,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Feed Me!/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.MakeSchool.Feed-Me-";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.chrischueh.feed-me";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Feed-Me-Bridgin-Header.h";

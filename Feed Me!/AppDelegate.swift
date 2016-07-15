@@ -68,32 +68,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             // 4
             // Otherwise set the LoginViewController to be the first
-            let loginViewController = PFLogInViewController()
+            let loginViewController = LoginViewController()
+
             loginViewController.fields = [.UsernameAndPassword, .LogInButton, .SignUpButton, .PasswordForgotten, .Facebook]
             loginViewController.delegate = parseLoginHelper
             loginViewController.signUpController?.delegate = parseLoginHelper
-            
-            let logoLogin = UILabel()
-            logoLogin.text = "Feed Me!"
-            logoLogin.font = UIFont(name: "Arial", size: 50)
-            
-            let logoSign = UILabel()
-            logoSign.text = "Sign Up!"
-            logoSign.font = UIFont(name: "Arial", size: 50)
-            
-            
-            loginViewController.logInView?.logo = logoLogin
-            loginViewController.signUpController?.signUpView?.logo = logoSign
-            
-            loginViewController.logInView!.logo!.sizeToFit()
-            loginViewController.signUpController?.signUpView!.logo!.sizeToFit()
-            
-            let logoFrame = loginViewController.signUpController!.signUpView!.logo!.frame
-            
-            
-           loginViewController.signUpController!.signUpView!.logo!.frame = CGRectMake(logoFrame.origin.x, loginViewController.signUpController!.signUpView!.usernameField!.frame.origin.y - logoFrame.height - 60, loginViewController.signUpController!.signUpView!.frame.width,  logoFrame.height)
-
-            
             
             
             startViewController = loginViewController
