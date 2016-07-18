@@ -39,6 +39,7 @@ extension ParseLoginHelper : PFLogInViewControllerDelegate {
         if !isFacebookLogin {
             // Plain parse login, we can return user immediately
             self.callback(user, nil)
+            
             logInController.logInView?.usernameField?.text = ""
             logInController.logInView?.passwordField?.text = ""
             

@@ -44,6 +44,48 @@
             </objects>
             <point key="canvasLocation" x="692" y="662"/>
         </scene>
+        <!--Home View Controller-->
+        <scene sceneID="tjf-Ac-JrO">
+            <objects>
+                <viewController id="r4z-Pc-v4K" customClass="HomeViewController" customModule="Feed_Me_" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mjS-hH-e7e"/>
+                        <viewControllerLayoutGuide type="bottom" id="Cp7-se-ZL1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tvD-ko-qfI">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mEP-Mg-d9r">
+                                <rect key="frame" x="279" y="98" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dGU-sJ-V5E">
+                                <rect key="frame" x="0.0" y="8" width="600" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="SFL-2n-w1K"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mEP-Mg-d9r" firstAttribute="top" secondItem="mjS-hH-e7e" secondAttribute="bottom" constant="78" id="H7G-iX-gCo"/>
+                            <constraint firstItem="dGU-sJ-V5E" firstAttribute="leading" secondItem="tvD-ko-qfI" secondAttribute="leading" id="ISm-OI-QWh"/>
+                            <constraint firstItem="mEP-Mg-d9r" firstAttribute="centerX" secondItem="tvD-ko-qfI" secondAttribute="centerX" id="TTk-IU-BL5"/>
+                            <constraint firstAttribute="trailing" secondItem="dGU-sJ-V5E" secondAttribute="trailing" id="gOZ-88-tb5"/>
+                            <constraint firstItem="dGU-sJ-V5E" firstAttribute="top" secondItem="tvD-ko-qfI" secondAttribute="top" constant="8" id="yBz-AY-Vff"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="Exterior-50" id="dAG-3C-FWm">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
+                    </tabBarItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ImE-L9-X6e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="688" y="2032"/>
+        </scene>
         <!--Donate View Controller-->
         <scene sceneID="F6p-Y7-gno">
             <objects>
@@ -67,7 +109,7 @@
                                 </items>
                             </navigationBar>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Kg6-vk-QbA">
-                                <rect key="frame" x="35" y="135" width="113" height="29"/>
+                                <rect key="frame" x="35" y="135" width="199" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="28" id="05U-Hj-hnA"/>
                                 </constraints>
@@ -75,16 +117,11 @@
                                     <segment title="$1"/>
                                     <segment title="$5"/>
                                     <segment title="$10"/>
+                                    <segment title="Other"/>
                                 </segments>
                             </segmentedControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Custom:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8TJ-GT-AHz">
-                                <rect key="frame" x="163" y="139" width="65" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fnc-dF-xT2">
-                                <rect key="frame" x="233" y="133" width="337" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Other Amount" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fnc-dF-xT2">
+                                <rect key="frame" x="254" y="133" width="316" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -217,15 +254,13 @@
                             <constraint firstItem="Fnc-dF-xT2" firstAttribute="top" secondItem="YBK-av-WeC" secondAttribute="bottom" constant="113" id="A9f-QV-BIO"/>
                             <constraint firstItem="bWC-zN-sCp" firstAttribute="leading" secondItem="rW2-vm-6GF" secondAttribute="leadingMargin" constant="15" id="Bfv-8h-365"/>
                             <constraint firstAttribute="trailing" secondItem="gpN-k6-ipC" secondAttribute="trailing" id="FYz-x3-EcA"/>
-                            <constraint firstItem="Fnc-dF-xT2" firstAttribute="leading" secondItem="8TJ-GT-AHz" secondAttribute="trailing" constant="5" id="JaR-jm-9su"/>
                             <constraint firstItem="tBW-KE-Sgx" firstAttribute="leading" secondItem="rW2-vm-6GF" secondAttribute="leadingMargin" constant="41" id="KJK-rG-eYc"/>
+                            <constraint firstItem="Fnc-dF-xT2" firstAttribute="leading" secondItem="Kg6-vk-QbA" secondAttribute="trailing" constant="20" id="MXZ-za-pyN"/>
                             <constraint firstItem="bWC-zN-sCp" firstAttribute="top" secondItem="YBK-av-WeC" secondAttribute="bottom" constant="87" id="NDa-LW-RNo"/>
                             <constraint firstItem="Kg6-vk-QbA" firstAttribute="top" secondItem="bWC-zN-sCp" secondAttribute="bottom" constant="7" id="PAR-Ng-yye"/>
                             <constraint firstItem="tBW-KE-Sgx" firstAttribute="top" secondItem="Kg6-vk-QbA" secondAttribute="bottom" constant="40" id="RqK-hh-hmW"/>
-                            <constraint firstItem="8TJ-GT-AHz" firstAttribute="top" secondItem="YBK-av-WeC" secondAttribute="bottom" constant="119" id="W1C-3y-wLf"/>
                             <constraint firstItem="Kg6-vk-QbA" firstAttribute="leading" secondItem="rW2-vm-6GF" secondAttribute="leadingMargin" constant="15" id="beh-jl-LCP"/>
                             <constraint firstItem="k2b-Qy-AJo" firstAttribute="top" secondItem="tBW-KE-Sgx" secondAttribute="bottom" constant="15" id="dru-0B-8ik"/>
-                            <constraint firstItem="8TJ-GT-AHz" firstAttribute="leading" secondItem="Kg6-vk-QbA" secondAttribute="trailing" constant="15" id="fPo-Hd-sYP"/>
                             <constraint firstItem="tBW-KE-Sgx" firstAttribute="leading" secondItem="rW2-vm-6GF" secondAttribute="leading" constant="20" id="oHo-Zg-cEm"/>
                             <constraint firstItem="gpN-k6-ipC" firstAttribute="top" secondItem="YBK-av-WeC" secondAttribute="bottom" constant="8" id="qBu-He-Cp2"/>
                             <constraint firstItem="Kg6-vk-QbA" firstAttribute="top" secondItem="YBK-av-WeC" secondAttribute="bottom" constant="115" id="tBX-uo-RD5"/>
@@ -261,22 +296,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ezE-6N-L8m">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="0v9-lo-hZM"/>
-                                    <constraint firstAttribute="width" constant="600" id="hWQ-qe-SmR"/>
-                                </constraints>
-                                <items>
-                                    <navigationItem title="User" id="9WF-Tq-TQd">
-                                        <barButtonItem key="leftBarButtonItem" title="Sign Out" id="unl-wm-IyB">
-                                            <connections>
-                                                <action selector="signOutButton:" destination="yvr-bK-bP2" id="3Pf-ZF-c19"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ydr-8v-Rpc">
                                 <rect key="frame" x="200" y="102" width="200" height="200"/>
                                 <constraints>
@@ -295,16 +314,33 @@
                                     <action selector="photoLibrary:" destination="yvr-bK-bP2" eventType="touchUpInside" id="l8B-6v-1eT"/>
                                 </connections>
                             </button>
+                            <navigationBar contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ezE-6N-L8m">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="600" id="3rX-A6-LpM"/>
+                                    <constraint firstAttribute="height" constant="44" id="dw8-CB-W1a"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="You" id="9WF-Tq-TQd">
+                                        <barButtonItem key="leftBarButtonItem" title="Sign Out" id="unl-wm-IyB">
+                                            <connections>
+                                                <action selector="signOutButton:" destination="yvr-bK-bP2" id="3Pf-ZF-c19"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ezE-6N-L8m" firstAttribute="leading" secondItem="OzE-KJ-c36" secondAttribute="leading" id="F5U-nH-LUt"/>
+                            <constraint firstItem="ezE-6N-L8m" firstAttribute="top" secondItem="Iel-G9-f1P" secondAttribute="bottom" constant="8" id="5d9-8F-ptw"/>
                             <constraint firstItem="u6d-bT-eGu" firstAttribute="centerX" secondItem="OzE-KJ-c36" secondAttribute="centerX" id="HQm-pk-Zew"/>
-                            <constraint firstAttribute="trailing" secondItem="ezE-6N-L8m" secondAttribute="trailing" id="VVp-dI-ouy"/>
                             <constraint firstItem="Ydr-8v-Rpc" firstAttribute="centerX" secondItem="OzE-KJ-c36" secondAttribute="centerX" id="W6z-4C-SHE"/>
                             <constraint firstItem="Ydr-8v-Rpc" firstAttribute="top" secondItem="Iel-G9-f1P" secondAttribute="bottom" constant="82" id="Zdb-We-KM8"/>
                             <constraint firstItem="u6d-bT-eGu" firstAttribute="top" secondItem="Ydr-8v-Rpc" secondAttribute="bottom" constant="10" id="eT8-aH-nkw"/>
-                            <constraint firstItem="ezE-6N-L8m" firstAttribute="top" secondItem="Iel-G9-f1P" secondAttribute="bottom" constant="8" id="xPS-Lc-VyT"/>
+                            <constraint firstAttribute="trailing" secondItem="ezE-6N-L8m" secondAttribute="trailing" id="pcI-9A-l7y"/>
+                            <constraint firstItem="Ydr-8v-Rpc" firstAttribute="top" secondItem="ezE-6N-L8m" secondAttribute="bottom" id="sVo-Ny-uqT"/>
+                            <constraint firstItem="ezE-6N-L8m" firstAttribute="leading" secondItem="OzE-KJ-c36" secondAttribute="leading" id="vRR-UR-9Je"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="User Group Man Man-50" id="tEO-qb-QmE">
@@ -328,6 +364,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
+                        <segue destination="r4z-Pc-v4K" kind="relationship" relationship="viewControllers" id="x2x-yB-f5N"/>
                         <segue destination="yvr-bK-bP2" kind="relationship" relationship="viewControllers" id="3CH-zk-oe1"/>
                         <segue destination="C06-Os-tNp" kind="relationship" relationship="viewControllers" id="Zjf-oe-XAa"/>
                         <segue destination="Rw7-1L-U73" kind="relationship" relationship="viewControllers" id="8ea-kZ-vNY"/>
@@ -341,6 +378,7 @@
     <resources>
         <image name="Compact Camera Filled-50" width="50" height="50"/>
         <image name="Donate-50" width="50" height="50"/>
+        <image name="Exterior-50" width="50" height="50"/>
         <image name="Presentation-50" width="50" height="50"/>
         <image name="User Group Man Man-50" width="50" height="50"/>
     </resources>
