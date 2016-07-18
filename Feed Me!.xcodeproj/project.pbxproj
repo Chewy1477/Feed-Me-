@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C32553E61D3C9F7400347557 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32553E51D3C9F7200347557 /* User.swift */; };
 		C33F49EC1D3435B000D1CC81 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33F49EB1D3435B000D1CC81 /* AppDelegate.swift */; };
 		C33F49F11D3435B000D1CC81 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C33F49EF1D3435B000D1CC81 /* Main.storyboard */; };
 		C33F49F31D3435B000D1CC81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C33F49F21D3435B000D1CC81 /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 		C35EAB511D3863D9000F59A5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35EAB501D3863D9000F59A5 /* LoginViewController.swift */; };
 		C37AE2DC1D359C5B00F3C0B0 /* ContributionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37AE2DB1D359C5B00F3C0B0 /* ContributionViewController.swift */; };
 		C37AE2DE1D359C7500F3C0B0 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37AE2DD1D359C7500F3C0B0 /* UserViewController.swift */; };
+		C38B5FA01D39753600440B0C /* PhotoTakingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38B5F9F1D39753600440B0C /* PhotoTakingHelper.swift */; };
 		D494E3BB9F1CBB98CA2F430B /* Pods_Feed_Me_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A4CAB8F47B73EE4AE9772B /* Pods_Feed_Me_.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +27,7 @@
 		0EB390BE726D5F45ED5B3CC9 /* Pods-Feed Me!.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Feed Me!.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Feed Me!/Pods-Feed Me!.debug.xcconfig"; sourceTree = "<group>"; };
 		45A4CAB8F47B73EE4AE9772B /* Pods_Feed_Me_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Feed_Me_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CCAD3E8B20EFAD3EBF8E459 /* Pods-Feed Me!.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Feed Me!.release.xcconfig"; path = "Pods/Target Support Files/Pods-Feed Me!/Pods-Feed Me!.release.xcconfig"; sourceTree = "<group>"; };
+		C32553E51D3C9F7200347557 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C32BDE401D35B78F0096678F /* Feed-Me-Bridgin-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Feed-Me-Bridgin-Header.h"; sourceTree = "<group>"; };
 		C33F49E81D3435B000D1CC81 /* Feed Me!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Feed Me!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C33F49EB1D3435B000D1CC81 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +42,7 @@
 		C35EAB501D3863D9000F59A5 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C37AE2DB1D359C5B00F3C0B0 /* ContributionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContributionViewController.swift; sourceTree = "<group>"; };
 		C37AE2DD1D359C7500F3C0B0 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		C38B5F9F1D39753600440B0C /* PhotoTakingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoTakingHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +63,14 @@
 				45A4CAB8F47B73EE4AE9772B /* Pods_Feed_Me_.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C32553E41D3C9EE800347557 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C32553E51D3C9F7200347557 /* User.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		C33F49DF1D3435B000D1CC81 = {
@@ -98,6 +110,7 @@
 		C35EAB0D1D36DE44000F59A5 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				C38B5F9F1D39753600440B0C /* PhotoTakingHelper.swift */,
 				C35EAB421D37064E000F59A5 /* ParseLoginHelper.swift */,
 				C35EAB0E1D36DED7000F59A5 /* ErrorHandling.swift */,
 			);
@@ -109,8 +122,9 @@
 			children = (
 				C35983F41D3601AD005D3062 /* DonateViewController.swift */,
 				C37AE2DB1D359C5B00F3C0B0 /* ContributionViewController.swift */,
-				C37AE2DD1D359C7500F3C0B0 /* UserViewController.swift */,
 				C35EAB501D3863D9000F59A5 /* LoginViewController.swift */,
+				C37AE2DD1D359C7500F3C0B0 /* UserViewController.swift */,
+				C32553E41D3C9EE800347557 /* Models */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -250,8 +264,10 @@
 			files = (
 				C35EAB511D3863D9000F59A5 /* LoginViewController.swift in Sources */,
 				C37AE2DE1D359C7500F3C0B0 /* UserViewController.swift in Sources */,
+				C38B5FA01D39753600440B0C /* PhotoTakingHelper.swift in Sources */,
 				C35EAB431D37064E000F59A5 /* ParseLoginHelper.swift in Sources */,
 				C33F49EC1D3435B000D1CC81 /* AppDelegate.swift in Sources */,
+				C32553E61D3C9F7400347557 /* User.swift in Sources */,
 				C35EAB0F1D36DED7000F59A5 /* ErrorHandling.swift in Sources */,
 				C37AE2DC1D359C5B00F3C0B0 /* ContributionViewController.swift in Sources */,
 				C35983F51D3601AD005D3062 /* DonateViewController.swift in Sources */,

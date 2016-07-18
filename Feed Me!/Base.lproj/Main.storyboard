@@ -277,17 +277,42 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ydr-8v-Rpc">
+                                <rect key="frame" x="200" y="102" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="0jG-RQ-ft8"/>
+                                    <constraint firstAttribute="width" constant="200" id="kNo-GB-KRn"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u6d-bT-eGu">
+                                <rect key="frame" x="283" y="312" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="ecK-ZD-k2A"/>
+                                    <constraint firstAttribute="width" constant="35" id="lMz-k5-EVM"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="Compact Camera Filled-50"/>
+                                <connections>
+                                    <action selector="photoLibrary:" destination="yvr-bK-bP2" eventType="touchUpInside" id="l8B-6v-1eT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ezE-6N-L8m" firstAttribute="leading" secondItem="OzE-KJ-c36" secondAttribute="leading" id="F5U-nH-LUt"/>
+                            <constraint firstItem="u6d-bT-eGu" firstAttribute="centerX" secondItem="OzE-KJ-c36" secondAttribute="centerX" id="HQm-pk-Zew"/>
                             <constraint firstAttribute="trailing" secondItem="ezE-6N-L8m" secondAttribute="trailing" id="VVp-dI-ouy"/>
+                            <constraint firstItem="Ydr-8v-Rpc" firstAttribute="centerX" secondItem="OzE-KJ-c36" secondAttribute="centerX" id="W6z-4C-SHE"/>
+                            <constraint firstItem="Ydr-8v-Rpc" firstAttribute="top" secondItem="Iel-G9-f1P" secondAttribute="bottom" constant="82" id="Zdb-We-KM8"/>
+                            <constraint firstItem="u6d-bT-eGu" firstAttribute="top" secondItem="Ydr-8v-Rpc" secondAttribute="bottom" constant="10" id="eT8-aH-nkw"/>
                             <constraint firstItem="ezE-6N-L8m" firstAttribute="top" secondItem="Iel-G9-f1P" secondAttribute="bottom" constant="8" id="xPS-Lc-VyT"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="User Group Man Man-50" id="tEO-qb-QmE">
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="imagePicker" destination="Ydr-8v-Rpc" id="BYl-oT-5ah"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xfO-Ze-67R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -314,6 +339,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Compact Camera Filled-50" width="50" height="50"/>
         <image name="Donate-50" width="50" height="50"/>
         <image name="Presentation-50" width="50" height="50"/>
         <image name="User Group Man Man-50" width="50" height="50"/>

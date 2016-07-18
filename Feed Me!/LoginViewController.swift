@@ -12,7 +12,6 @@ class LoginViewController: PFLogInViewController {
     var myView: UIView!
     var backgroundImage: UIImageView!
     var signUpImage: UIImageView!
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +26,7 @@ class LoginViewController: PFLogInViewController {
         logoLogin.shadowColor = UIColor.lightGrayColor()
         
         logInView?.logo = logoLogin
-        logInView!.logo!.sizeToFit()
+        logInView?.contentMode = .ScaleAspectFit
         
         signUpImage = UIImageView(image: UIImage(named: "Helping Hand"))
         signUpController?.signUpView!.insertSubview(signUpImage, atIndex: 0)
@@ -39,7 +38,7 @@ class LoginViewController: PFLogInViewController {
         logoSign.shadowColor = UIColor.lightGrayColor()
         
         signUpController?.signUpView?.logo = logoSign
-        signUpController?.signUpView!.logo!.sizeToFit()
+        signUpController?.signUpView!.contentMode = .ScaleAspectFit
         
     }
  
@@ -49,4 +48,5 @@ class LoginViewController: PFLogInViewController {
         backgroundImage.frame = CGRectMake(0, 0,  logInView!.frame.width,  logInView!.frame.height)
         signUpImage.frame = CGRectMake(0,0, logInView!.frame.width, logInView!.frame.height)
     }
+    
 }
