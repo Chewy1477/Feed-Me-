@@ -9,16 +9,28 @@
 import UIKit
 
 class CompanyNotesTableViewCell: UITableViewCell {
+    
+    var onButtonTapped : (() -> Void)? = nil
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+
+    // MARK: Properties
+    
+    @IBOutlet weak var aboutText: UITextView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var photoView: UIImageView!
+    
+
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
-
+    
+    @IBAction func locateCompany(sender: UIButton) {
+        if let onButtonTapped = self.onButtonTapped {
+            onButtonTapped()
+        }
+    }
+    
 }

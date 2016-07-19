@@ -14,6 +14,8 @@
 		C33F49F61D3435B000D1CC81 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C33F49F41D3435B000D1CC81 /* LaunchScreen.storyboard */; };
 		C34E11A01D3E98B500643482 /* CompanyNotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34E119F1D3E98B500643482 /* CompanyNotesTableViewCell.swift */; };
 		C34E11A41D3E9DD500643482 /* CompanyNotesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34E11A31D3E9DD500643482 /* CompanyNotesTableViewController.swift */; };
+		C34E11A71D3EBE6E00643482 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34E11A61D3EBE6D00643482 /* Company.swift */; };
+		C34E11A91D3EEA2B00643482 /* LocateCompanyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34E11A81D3EEA2A00643482 /* LocateCompanyViewController.swift */; };
 		C35983F51D3601AD005D3062 /* DonateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35983F41D3601AD005D3062 /* DonateViewController.swift */; };
 		C35EAB0F1D36DED7000F59A5 /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35EAB0E1D36DED7000F59A5 /* ErrorHandling.swift */; };
 		C35EAB431D37064E000F59A5 /* ParseLoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35EAB421D37064E000F59A5 /* ParseLoginHelper.swift */; };
@@ -38,6 +40,8 @@
 		C33F49F71D3435B000D1CC81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "/Users/Administrator/Desktop/Make School Projects/Feed-Me--master/Feed Me!/Info.plist"; sourceTree = "<absolute>"; };
 		C34E119F1D3E98B500643482 /* CompanyNotesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyNotesTableViewCell.swift; sourceTree = "<group>"; };
 		C34E11A31D3E9DD500643482 /* CompanyNotesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyNotesTableViewController.swift; sourceTree = "<group>"; };
+		C34E11A61D3EBE6D00643482 /* Company.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
+		C34E11A81D3EEA2A00643482 /* LocateCompanyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocateCompanyViewController.swift; sourceTree = "<group>"; };
 		C35983F41D3601AD005D3062 /* DonateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DonateViewController.swift; sourceTree = "<group>"; };
 		C35EAB0E1D36DED7000F59A5 /* ErrorHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHandling.swift; sourceTree = "<group>"; };
 		C35EAB421D37064E000F59A5 /* ParseLoginHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseLoginHelper.swift; sourceTree = "<group>"; };
@@ -90,8 +94,10 @@
 			children = (
 				C35EAB0D1D36DE44000F59A5 /* Helpers */,
 				C37AE2DA1D359C4400F3C0B0 /* View Controllers */,
-				C32BDE401D35B78F0096678F /* Feed-Me-Bridgin-Header.h */,
+				C34E119E1D3E97CF00643482 /* Contributors */,
+				C34E11A51D3EBE4A00643482 /* Models */,
 				C33F49EB1D3435B000D1CC81 /* AppDelegate.swift */,
+				C32BDE401D35B78F0096678F /* Feed-Me-Bridgin-Header.h */,
 				C33F49EF1D3435B000D1CC81 /* Main.storyboard */,
 				C33F49F21D3435B000D1CC81 /* Assets.xcassets */,
 				C33F49F41D3435B000D1CC81 /* LaunchScreen.storyboard */,
@@ -101,12 +107,20 @@
 			path = "Feed Me!";
 			sourceTree = "<group>";
 		};
-		C34E119E1D3E97CF00643482 /* Views */ = {
+		C34E119E1D3E97CF00643482 /* Contributors */ = {
 			isa = PBXGroup;
 			children = (
 				C34E119F1D3E98B500643482 /* CompanyNotesTableViewCell.swift */,
 			);
-			name = Views;
+			name = Contributors;
+			sourceTree = "<group>";
+		};
+		C34E11A51D3EBE4A00643482 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C34E11A61D3EBE6D00643482 /* Company.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		C35EAB0D1D36DE44000F59A5 /* Helpers */ = {
@@ -127,7 +141,7 @@
 				C33895531D3D91CF00C5ACCA /* HomeViewController.swift */,
 				C37AE2DD1D359C7500F3C0B0 /* UserViewController.swift */,
 				C34E11A31D3E9DD500643482 /* CompanyNotesTableViewController.swift */,
-				C34E119E1D3E97CF00643482 /* Views */,
+				C34E11A81D3EEA2A00643482 /* LocateCompanyViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -267,11 +281,13 @@
 			files = (
 				C35EAB511D3863D9000F59A5 /* LoginViewController.swift in Sources */,
 				C37AE2DE1D359C7500F3C0B0 /* UserViewController.swift in Sources */,
+				C34E11A91D3EEA2B00643482 /* LocateCompanyViewController.swift in Sources */,
 				C38B5FA01D39753600440B0C /* PhotoTakingHelper.swift in Sources */,
 				C34E11A01D3E98B500643482 /* CompanyNotesTableViewCell.swift in Sources */,
 				C35EAB431D37064E000F59A5 /* ParseLoginHelper.swift in Sources */,
 				C33F49EC1D3435B000D1CC81 /* AppDelegate.swift in Sources */,
 				C33895541D3D91CF00C5ACCA /* HomeViewController.swift in Sources */,
+				C34E11A71D3EBE6E00643482 /* Company.swift in Sources */,
 				C34E11A41D3E9DD500643482 /* CompanyNotesTableViewController.swift in Sources */,
 				C35EAB0F1D36DED7000F59A5 /* ErrorHandling.swift in Sources */,
 				C35983F51D3601AD005D3062 /* DonateViewController.swift in Sources */,
