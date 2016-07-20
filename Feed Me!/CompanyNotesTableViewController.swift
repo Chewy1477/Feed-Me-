@@ -48,9 +48,6 @@ class CompanyNotesTableViewController: UITableViewController {
         cell.photoView.image = company.photo
         cell.aboutText.text = company.about
         
-        cell.onButtonTapped = {
-            print("hello")
-        }
         
 
         // 5
