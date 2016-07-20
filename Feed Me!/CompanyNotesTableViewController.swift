@@ -55,3 +55,4 @@ class CompanyNotesTableViewController: UITableViewController {
     }
  
 }
+

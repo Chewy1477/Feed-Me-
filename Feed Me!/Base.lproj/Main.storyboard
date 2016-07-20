@@ -400,7 +400,7 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="American restaurant chain known for Italian-American cuisine." textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jBG-7M-c5s">
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Placeholder Text" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jBG-7M-c5s">
                                             <rect key="frame" x="88" y="21" width="202" height="38"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
@@ -444,7 +444,7 @@
         <!--Locate Company View Controller-->
         <scene sceneID="QME-IZ-9bH">
             <objects>
-                <viewController id="Zfs-Ox-XOb" customClass="LocateCompanyViewController" customModule="Feed_Me_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LocateCompanyViewController" id="Zfs-Ox-XOb" customClass="LocateCompanyViewController" customModule="Feed_Me_" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JQK-gl-Uxl"/>
                         <viewControllerLayoutGuide type="bottom" id="fY5-yX-vVd"/>
@@ -475,6 +475,50 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UIf-Cp-vSo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2170" y="676"/>
+        </scene>
+        <!--Location Search Table-->
+        <scene sceneID="WYI-hq-Z5H">
+            <objects>
+                <tableViewController storyboardIdentifier="LocationSearchTable" id="dmu-Z4-8V2" customClass="LocationSearchTable" customModule="Feed_Me_" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Id9-kb-7Ji">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="DEP-jm-emm" detailTextLabel="NjF-vN-BFi" style="IBUITableViewCellStyleSubtitle" id="vwv-hg-xpA">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vwv-hg-xpA" id="2rf-mt-sN8">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DEP-jm-emm">
+                                            <rect key="frame" x="15" y="5" width="32" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NjF-vN-BFi">
+                                            <rect key="frame" x="15" y="25" width="41" height="14"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="dmu-Z4-8V2" id="PAt-Y3-Sut"/>
+                            <outlet property="delegate" destination="dmu-Z4-8V2" id="qMz-PT-w5W"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tyf-3w-UOc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2170" y="1341"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="tIL-OG-YlV">
