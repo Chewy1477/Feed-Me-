@@ -459,13 +459,26 @@
                                     <outlet property="delegate" destination="Zfs-Ox-XOb" id="ixQ-Zp-56M"/>
                                 </connections>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FEi-Hd-lUm">
+                                <rect key="frame" x="530" y="493" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="YLp-kZ-Fhm"/>
+                                    <constraint firstAttribute="height" constant="50" id="pBG-TZ-eus"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="Current-Location-512"/>
+                                <connections>
+                                    <action selector="currentLocation:" destination="Zfs-Ox-XOb" eventType="touchUpInside" id="ItZ-g2-BIm"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="fY5-yX-vVd" firstAttribute="top" secondItem="FEi-Hd-lUm" secondAttribute="bottom" constant="8" id="CZ8-pA-49p"/>
                             <constraint firstAttribute="trailing" secondItem="fCT-eI-mC2" secondAttribute="trailing" id="Xj8-cr-gY9"/>
                             <constraint firstItem="fY5-yX-vVd" firstAttribute="top" secondItem="fCT-eI-mC2" secondAttribute="bottom" id="bN6-nf-qxa"/>
                             <constraint firstItem="fCT-eI-mC2" firstAttribute="leading" secondItem="9Rq-yk-f7o" secondAttribute="leading" id="duu-AY-0aH"/>
                             <constraint firstItem="fCT-eI-mC2" firstAttribute="top" secondItem="JQK-gl-Uxl" secondAttribute="bottom" id="jmb-WL-FdW"/>
+                            <constraint firstAttribute="trailing" secondItem="FEi-Hd-lUm" secondAttribute="trailing" constant="20" id="yIk-4l-y06"/>
                         </constraints>
                     </view>
                     <connections>
@@ -564,6 +577,7 @@
     </scenes>
     <resources>
         <image name="Compact Camera Filled-50" width="50" height="50"/>
+        <image name="Current-Location-512" width="512" height="512"/>
         <image name="Donate-50" width="50" height="50"/>
         <image name="Exterior-50" width="50" height="50"/>
         <image name="Marker-50" width="50" height="50"/>

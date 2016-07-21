@@ -11,6 +11,7 @@ import UIKit
 class CompanyNotesTableViewController: UITableViewController {
     
     var companies = [Company]()
+    var searchName: String?
  
     
     override func viewDidLoad() {
@@ -28,6 +29,7 @@ class CompanyNotesTableViewController: UITableViewController {
         
         companies += [createPanera, createPizza, createPizza,createPizza,createPizza,createPizza,createPizza,createPizza,createPizza,createPizza]
     }
+    
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return companies.count
@@ -36,22 +38,29 @@ class CompanyNotesTableViewController: UITableViewController {
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
-    
+
     // 2
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // 3
         let cell = tableView.dequeueReusableCellWithIdentifier("CompanyNotesTableViewCell", forIndexPath: indexPath) as! CompanyNotesTableViewCell
         
+
         // 4
         let company = companies[indexPath.row]
+
         cell.nameLabel.text = company.name
         cell.photoView.image = company.photo
         cell.aboutText.text = company.about
         
-        
 
         // 5
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let company = companies[indexPath.row]
+        print(company.name)
+        NSUserDefaults.standardUserDefaults().setObject(company.name, forKey: "companyName")
     }
  
 }
