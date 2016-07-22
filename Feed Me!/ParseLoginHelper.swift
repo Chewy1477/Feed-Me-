@@ -23,6 +23,8 @@ class ParseLoginHelper : NSObject {
     static let usernameNotFoundLocalizedDescription = "Could not retrieve Facebook username"
     
     let callback: ParseLoginHelperCallback
+    var window: UIWindow?
+
     
     init(callback: ParseLoginHelperCallback) {
         self.callback = callback
@@ -87,6 +89,7 @@ extension ParseLoginHelper : PFSignUpViewControllerDelegate {
     func signUpViewController(signUpController: PFSignUpViewController, didSignUpUser user: PFUser) {
         
         self.callback(user, nil)
+        
     }
     
 }

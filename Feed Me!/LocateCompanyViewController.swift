@@ -105,7 +105,7 @@ extension LocateCompanyViewController : MKMapViewDelegate {
         pinView?.canShowCallout = true
         let smallSquare = CGSize(width: 30, height: 30)
         let button = UIButton(frame: CGRect(origin: CGPointZero, size: smallSquare))
-        button.setBackgroundImage(UIImage(named: "car"), forState: .Normal)
+        button.setBackgroundImage(UIImage(named: "car1"), forState: .Normal)
         button.addTarget(self, action: #selector(LocateCompanyViewController.getDirections), forControlEvents: .TouchUpInside)
         pinView?.leftCalloutAccessoryView = button
         return pinView

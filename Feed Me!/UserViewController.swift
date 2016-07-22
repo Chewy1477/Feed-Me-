@@ -19,12 +19,15 @@ class UserViewController: UIViewController {
 
 
     @IBOutlet weak var imagePicker: UIImageView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.imagePicker.layer.borderWidth = 5
-        self.imagePicker.layer.borderColor = UIColor(red:222/255.0, green:225/255.0, blue:227/255.0, alpha: 1.0).CGColor
+        self.imagePicker.layer.borderWidth = 3
+        self.imagePicker.layer.borderColor = UIColor(red:100/255.0, green:225/255.0, blue:227/255.0, alpha: 1.0).CGColor
+        
+        self.imagePicker.layer.cornerRadius = self.imagePicker.frame.size.width / 2;
+        self.imagePicker.clipsToBounds = true
         
         if let userPicture = PFUser.currentUser()?["imageFile"] as? PFFile {
             userPicture.getDataInBackgroundWithBlock { (imageData: NSData?, error: NSError?) -> Void in
@@ -32,6 +35,9 @@ class UserViewController: UIViewController {
                     self.imagePicker.image = UIImage(data: imageData!)
                 }
             }
+        }
+        else {
+            self.imagePicker.image = UIImage(named: "face")
         }
     }
    

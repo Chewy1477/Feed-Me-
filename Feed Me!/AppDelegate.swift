@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     var parseLoginHelper: ParseLoginHelper!
+    var homeViewController: HomeViewController?
     
     override init() {
         super.init()
@@ -40,14 +41,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        
         // Set up the Parse SDK
         let configuration = ParseClientConfiguration {
             $0.applicationId = "feed-me"
             $0.server = "https://feed-me-parse-chc.herokuapp.com/parse"
         }
+        PFUser.enableRevocableSessionInBackground()
         Parse.initializeWithConfiguration(configuration)
-        
         
         let acl = PFACL()
         acl.publicReadAccess = true
