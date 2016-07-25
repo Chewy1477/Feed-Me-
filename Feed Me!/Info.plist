@@ -46,8 +46,6 @@
 	<string>1126950230695530</string>
 	<key>FacebookDisplayName</key>
 	<string>Feed Me!</string>
-	<key>UIMainStoryboardFile</key>
-	<string>Main</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIAppFonts</key>

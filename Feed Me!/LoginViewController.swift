@@ -6,18 +6,18 @@
 //  Copyright © 2016 Chris Chueh. All rights reserved.
 //
 
+import UIKit
+import Parse
+import FBSDKCoreKit
 import ParseUI
+import ParseFacebookUtilsV4
 
 class LoginViewController: PFLogInViewController {
-    var myView: UIView!
-    var backgroundImage: UIImageView!
-    var signUpImage: UIImageView!
     
+    var parseLoginHelper: ParseLoginHelper!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        backgroundImage = UIImageView(image: UIImage(named: "Helping Hand"))
-        logInView?.insertSubview(backgroundImage, atIndex: 0)
         
         let logoLogin = UILabel()
         logoLogin.text = "Feed Me!"
@@ -28,25 +28,22 @@ class LoginViewController: PFLogInViewController {
         logInView?.logo = logoLogin
         logInView?.contentMode = .ScaleAspectFit
         
-        signUpImage = UIImageView(image: UIImage(named: "Helping Hand"))
-        signUpController?.signUpView!.insertSubview(signUpImage, atIndex: 0)
-        
         let logoSign = UILabel()
         logoSign.text = "Sign Up!"
         logoSign.textColor = UIColor.whiteColor()
         logoSign.font = UIFont(name: "Arial", size: 40)
         logoSign.shadowColor = UIColor.lightGrayColor()
         
-        signUpController?.signUpView?.logo = logoSign
-        signUpController?.signUpView!.contentMode = .ScaleAspectFit
-        
     }
- 
+
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        backgroundImage.frame = CGRectMake(0, 0,  logInView!.frame.width,  logInView!.frame.height)
-        signUpImage.frame = CGRectMake(0,0, logInView!.frame.width, logInView!.frame.height)
+        let motionView: PanoramaView = PanoramaView(frame: self.view.bounds)
+        motionView.setImage(UIImage(named:"360")!)
+        logInView!.insertSubview(motionView, atIndex: 0)
+//        signUpController?.signUpView!.insertSubview(motionView, atIndex: 0)
     }
     
 }

@@ -24,6 +24,8 @@
 		C368564E1D40207D00A41885 /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C368564D1D40207C00A41885 /* LocationSearchTable.swift */; };
 		C37AE2DE1D359C7500F3C0B0 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37AE2DD1D359C7500F3C0B0 /* UserViewController.swift */; };
 		C38B5FA01D39753600440B0C /* PhotoTakingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38B5F9F1D39753600440B0C /* PhotoTakingHelper.swift */; };
+		C3EB81CD1D42E19F000345C7 /* PanoramaIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EB81CB1D42E19F000345C7 /* PanoramaIndicator.swift */; };
+		C3EB81CE1D42E19F000345C7 /* PanoramaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EB81CC1D42E19F000345C7 /* PanoramaView.swift */; };
 		D494E3BB9F1CBB98CA2F430B /* Pods_Feed_Me_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A4CAB8F47B73EE4AE9772B /* Pods_Feed_Me_.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +53,8 @@
 		C368564D1D40207C00A41885 /* LocationSearchTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
 		C37AE2DD1D359C7500F3C0B0 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		C38B5F9F1D39753600440B0C /* PhotoTakingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoTakingHelper.swift; sourceTree = "<group>"; };
+		C3EB81CB1D42E19F000345C7 /* PanoramaIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanoramaIndicator.swift; sourceTree = "<group>"; };
+		C3EB81CC1D42E19F000345C7 /* PanoramaView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanoramaView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +98,7 @@
 		C33F49EA1D3435B000D1CC81 /* Feed Me! */ = {
 			isa = PBXGroup;
 			children = (
+				C3BF67C51D45D5BA00D3140C /* Panorama */,
 				C35EAB0D1D36DE44000F59A5 /* Helpers */,
 				C37AE2DA1D359C4400F3C0B0 /* View Controllers */,
 				C368564C1D40205A00A41885 /* Maps */,
@@ -163,6 +168,15 @@
 				C34E11A31D3E9DD500643482 /* CompanyNotesTableViewController.swift */,
 			);
 			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		C3BF67C51D45D5BA00D3140C /* Panorama */ = {
+			isa = PBXGroup;
+			children = (
+				C3EB81CC1D42E19F000345C7 /* PanoramaView.swift */,
+				C3EB81CB1D42E19F000345C7 /* PanoramaIndicator.swift */,
+			);
+			name = Panorama;
 			sourceTree = "<group>";
 		};
 		DC7C320A3C6BDA51A0AB18EA /* Pods */ = {
@@ -298,8 +312,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3EB81CD1D42E19F000345C7 /* PanoramaIndicator.swift in Sources */,
 				C368564E1D40207D00A41885 /* LocationSearchTable.swift in Sources */,
 				C35EAB511D3863D9000F59A5 /* LoginViewController.swift in Sources */,
+				C3EB81CE1D42E19F000345C7 /* PanoramaView.swift in Sources */,
 				C37AE2DE1D359C7500F3C0B0 /* UserViewController.swift in Sources */,
 				C34E11A91D3EEA2B00643482 /* LocateCompanyViewController.swift in Sources */,
 				C38B5FA01D39753600440B0C /* PhotoTakingHelper.swift in Sources */,

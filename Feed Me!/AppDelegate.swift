@@ -17,7 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     var parseLoginHelper: ParseLoginHelper!
-    var homeViewController: HomeViewController?
     
     override init() {
         super.init()
@@ -71,11 +70,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // 4
             // Otherwise set the LoginViewController to be the first
             let loginViewController = LoginViewController()
-
+            
             loginViewController.fields = [.UsernameAndPassword, .LogInButton, .SignUpButton, .PasswordForgotten, .Facebook]
             loginViewController.delegate = parseLoginHelper
             loginViewController.signUpController?.delegate = parseLoginHelper
-
+            
             
             startViewController = loginViewController
             
@@ -85,7 +84,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         self.window?.rootViewController = startViewController;
         self.window?.makeKeyAndVisible()
-    
         
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         

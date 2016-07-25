@@ -44,8 +44,7 @@ extension ParseLoginHelper : PFLogInViewControllerDelegate {
             
             logInController.logInView?.usernameField?.text = ""
             logInController.logInView?.passwordField?.text = ""
-            
-            
+                        
         } else {
             // if this is a Facebook login, fetch the username from Facebook
             FBSDKGraphRequest(graphPath: "me", parameters: nil).startWithCompletionHandler {
@@ -69,13 +68,7 @@ extension ParseLoginHelper : PFLogInViewControllerDelegate {
                         }
                     })
                 } else {
-                    // cannot retrieve username? -> create error and hand it to callback
-                    //                    let userInfo = [NSLocalizedDescriptionKey : ParseLoginHelper.usernameNotFoundLocalizedDescription]
-                    //                    let noUsernameError = NSError(
-                    //                        domain: ParseLoginHelper.errorDomain,
-                    //                        code: ParseLoginHelper.usernameNotFoundErrorCode,
-                    //                        userInfo: userInfo
-                    //                    )
+                   
                     self.callback(nil, error)
                 }
             }
