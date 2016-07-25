@@ -23,11 +23,15 @@ class UserViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var nameLabel: UITextField!
     @IBOutlet weak var imagePicker: UIImageView!
+    @IBOutlet weak var ageLabel: UITextField!
+    @IBOutlet weak var stateLabel: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.nameLabel.delegate = self
+        self.ageLabel.delegate = self
+        self.stateLabel.delegate = self
         
         // Do any additional setup after loading the view, typically from a nib.
         self.imagePicker.layer.borderWidth = 3
@@ -37,8 +41,7 @@ class UserViewController: UIViewController, UITextFieldDelegate {
         self.imagePicker.clipsToBounds = true
         
         self.fetchImage()
-        
-        self.saveText()
+        self.retrieveText()
     }
    
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -61,16 +64,29 @@ class UserViewController: UIViewController, UITextFieldDelegate {
     }
     
     func saveText() {
-        let nameStore = PFObject(className: "User")
-        nameStore["Name"] = nameLabel
+        let nameSave = self.nameLabel.text
+        let ageSave = self.ageLabel.text
+        let stateSave = self.stateLabel.text
+        
+        user!.setObject(nameSave!, forKey: "Name")
+        user!.setObject(ageSave!, forKey: "Age")
+        user!.setObject(stateSave!, forKey: "State")
         user!.saveInBackgroundWithBlock(nil)
+        
+    }
+
+    func retrieveText() {
+        guard let nameGet = (user?["Name"] as! String?), ageGet = (user?["Age"] as! String?), stateGet = (user?["State"] as! String?)  else {
+            return
+        }
+
+        self.nameLabel.text = nameGet
+        self.ageLabel.text = ageGet
+        self.stateLabel.text = stateGet
+        
     }
     
-    func retrieveText() {
-        if let currentName = user?["Name"] as? String {
-            self.nameLabel.text = currentName
-        }
-    }
+
     
     func uploadImage() {
         if let image = image {
@@ -97,4 +113,9 @@ class UserViewController: UIViewController, UITextFieldDelegate {
 
     }
             
+    @IBAction func saveFields(sender: UIButton) {
+        self.saveText()
+        print("please work")
+
+    }
 }

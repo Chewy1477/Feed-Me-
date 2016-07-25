@@ -67,6 +67,7 @@ extension ParseLoginHelper : PFLogInViewControllerDelegate {
                             self.callback(nil, error)
                         }
                     })
+                    
                 } else {
                    
                     self.callback(nil, error)
