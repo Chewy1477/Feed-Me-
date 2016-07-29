@@ -14,14 +14,13 @@ class DonateViewController: UIViewController, BTDropInViewControllerDelegate {
     var clientToken: String!
     
     override func viewDidLoad() {
-        let clientTokenURL = NSURL(string: "https://feed-me-application.herokuapp.com/")!
+        let clientTokenURL = NSURL(string: "https://feed-me-application.herokuapp.com/client_token")!
         let clientTokenRequest = NSMutableURLRequest(URL: clientTokenURL)
         clientTokenRequest.setValue("text/plain", forHTTPHeaderField: "Accept")
         
         NSURLSession.sharedSession().dataTaskWithRequest(clientTokenRequest) { [unowned self] (data, response, error) -> Void in
             // TODO: Handle errors
             self.clientToken = NSString(data: data!, encoding: NSUTF8StringEncoding) as! String
-            print(self.clientToken)
             
             // As an example, you may wish to present our Drop-in UI at this point.
             // Continue to the next section to learn more...
@@ -42,9 +41,9 @@ class DonateViewController: UIViewController, BTDropInViewControllerDelegate {
     }
 
     func postNonceToServer(paymentMethodNonce: String) {
-        let paymentURL = NSURL(string: "https://feed-me-application.herokuapp.com/")!
+        let paymentURL = NSURL(string: "https://feed-me-application.herokuapp.com/payment_nonce")!
         let request = NSMutableURLRequest(URL: paymentURL)
-        request.HTTPBody = "payment_method_nonce=\(paymentMethodNonce)".dataUsingEncoding(NSUTF8StringEncoding)
+        request.HTTPBody = "payment_method_nonce= \(paymentMethodNonce)".dataUsingEncoding(NSUTF8StringEncoding)
         request.HTTPMethod = "POST"
         
         NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) -> Void in
@@ -56,7 +55,6 @@ class DonateViewController: UIViewController, BTDropInViewControllerDelegate {
         // If you haven't already, create and retain a `BTAPIClient` instance with a
         // tokenization key OR a client token from your server.
         // Typically, you only need to do this once per session.
-        print(clientToken)
         braintreeClient = BTAPIClient(authorization: clientToken)
         
         // Create a BTDropInViewController
