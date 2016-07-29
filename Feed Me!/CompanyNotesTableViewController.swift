@@ -59,7 +59,6 @@ class CompanyNotesTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let company = companies[indexPath.row]
-        print(company.name)
         NSUserDefaults.standardUserDefaults().setObject(company.name, forKey: "companyName")
     }
  

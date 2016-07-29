@@ -16,7 +16,6 @@
 		C34E11A41D3E9DD500643482 /* CompanyNotesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34E11A31D3E9DD500643482 /* CompanyNotesTableViewController.swift */; };
 		C34E11A71D3EBE6E00643482 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34E11A61D3EBE6D00643482 /* Company.swift */; };
 		C34E11A91D3EEA2B00643482 /* LocateCompanyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34E11A81D3EEA2A00643482 /* LocateCompanyViewController.swift */; };
-		C35983F51D3601AD005D3062 /* DonateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35983F41D3601AD005D3062 /* DonateViewController.swift */; };
 		C35EAB0F1D36DED7000F59A5 /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35EAB0E1D36DED7000F59A5 /* ErrorHandling.swift */; };
 		C35EAB431D37064E000F59A5 /* ParseLoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35EAB421D37064E000F59A5 /* ParseLoginHelper.swift */; };
 		C35EAB4B1D3828EF000F59A5 /* Pacifico.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C35EAB4A1D3828EF000F59A5 /* Pacifico.ttf */; };
@@ -24,6 +23,7 @@
 		C368564E1D40207D00A41885 /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C368564D1D40207C00A41885 /* LocationSearchTable.swift */; };
 		C37AE2DE1D359C7500F3C0B0 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37AE2DD1D359C7500F3C0B0 /* UserViewController.swift */; };
 		C38B5FA01D39753600440B0C /* PhotoTakingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38B5F9F1D39753600440B0C /* PhotoTakingHelper.swift */; };
+		C391594D1D49522B00B2315E /* DonateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C391594C1D49522B00B2315E /* DonateViewController.swift */; };
 		C3EB81CD1D42E19F000345C7 /* PanoramaIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EB81CB1D42E19F000345C7 /* PanoramaIndicator.swift */; };
 		C3EB81CE1D42E19F000345C7 /* PanoramaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EB81CC1D42E19F000345C7 /* PanoramaView.swift */; };
 		D494E3BB9F1CBB98CA2F430B /* Pods_Feed_Me_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A4CAB8F47B73EE4AE9772B /* Pods_Feed_Me_.framework */; };
@@ -45,7 +45,7 @@
 		C34E11A31D3E9DD500643482 /* CompanyNotesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyNotesTableViewController.swift; sourceTree = "<group>"; };
 		C34E11A61D3EBE6D00643482 /* Company.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 		C34E11A81D3EEA2A00643482 /* LocateCompanyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocateCompanyViewController.swift; sourceTree = "<group>"; };
-		C35983F41D3601AD005D3062 /* DonateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DonateViewController.swift; sourceTree = "<group>"; };
+		C35614CC1D47E4C000C6D5B8 /* Feed Me!.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Feed Me!.entitlements"; sourceTree = "<group>"; };
 		C35EAB0E1D36DED7000F59A5 /* ErrorHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHandling.swift; sourceTree = "<group>"; };
 		C35EAB421D37064E000F59A5 /* ParseLoginHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseLoginHelper.swift; sourceTree = "<group>"; };
 		C35EAB4A1D3828EF000F59A5 /* Pacifico.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Pacifico.ttf; sourceTree = "<group>"; };
@@ -53,6 +53,7 @@
 		C368564D1D40207C00A41885 /* LocationSearchTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
 		C37AE2DD1D359C7500F3C0B0 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		C38B5F9F1D39753600440B0C /* PhotoTakingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoTakingHelper.swift; sourceTree = "<group>"; };
+		C391594C1D49522B00B2315E /* DonateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DonateViewController.swift; sourceTree = "<group>"; };
 		C3EB81CB1D42E19F000345C7 /* PanoramaIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanoramaIndicator.swift; sourceTree = "<group>"; };
 		C3EB81CC1D42E19F000345C7 /* PanoramaView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanoramaView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -98,6 +99,7 @@
 		C33F49EA1D3435B000D1CC81 /* Feed Me! */ = {
 			isa = PBXGroup;
 			children = (
+				C35614CC1D47E4C000C6D5B8 /* Feed Me!.entitlements */,
 				C3BF67C51D45D5BA00D3140C /* Panorama */,
 				C35EAB0D1D36DE44000F59A5 /* Helpers */,
 				C37AE2DA1D359C4400F3C0B0 /* View Controllers */,
@@ -161,7 +163,7 @@
 		C37AE2DA1D359C4400F3C0B0 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				C35983F41D3601AD005D3062 /* DonateViewController.swift */,
+				C391594C1D49522B00B2315E /* DonateViewController.swift */,
 				C35EAB501D3863D9000F59A5 /* LoginViewController.swift */,
 				C33895531D3D91CF00C5ACCA /* HomeViewController.swift */,
 				C37AE2DD1D359C7500F3C0B0 /* UserViewController.swift */,
@@ -223,7 +225,12 @@
 				TargetAttributes = {
 					C33F49E71D3435B000D1CC81 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = LP22J464X7;
+						DevelopmentTeam = LKCKKC372M;
+						SystemCapabilities = {
+							com.apple.OMC = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -322,11 +329,11 @@
 				C34E11A01D3E98B500643482 /* CompanyNotesTableViewCell.swift in Sources */,
 				C35EAB431D37064E000F59A5 /* ParseLoginHelper.swift in Sources */,
 				C33F49EC1D3435B000D1CC81 /* AppDelegate.swift in Sources */,
+				C391594D1D49522B00B2315E /* DonateViewController.swift in Sources */,
 				C33895541D3D91CF00C5ACCA /* HomeViewController.swift in Sources */,
 				C34E11A71D3EBE6E00643482 /* Company.swift in Sources */,
 				C34E11A41D3E9DD500643482 /* CompanyNotesTableViewController.swift in Sources */,
 				C35EAB0F1D36DED7000F59A5 /* ErrorHandling.swift in Sources */,
-				C35983F51D3601AD005D3062 /* DonateViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,9 +451,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Feed Me!/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.chrischueh.feed-me";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.chc3cc.feed-me";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Feed-Me-Bridgin-Header.h";
@@ -460,9 +471,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Feed Me!/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.chrischueh.feed-me";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.chc3cc.feed-me";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Feed-Me-Bridgin-Header.h";

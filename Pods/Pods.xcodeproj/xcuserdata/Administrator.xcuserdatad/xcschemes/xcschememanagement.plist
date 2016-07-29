@@ -14,6 +14,21 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Braintree-Braintree-Drop-In-Localization.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Braintree-Braintree-UI-Localization.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Braintree.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>ConvenienceKit-ConvenienceKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -72,17 +87,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>11BD9F68C2F91F5AF96C10585EAE863A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>2C8AA1BAF35413BDB954A1DF93576ED1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>3511258FF1DED3401C4B456024D5FA41</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>386B6A6CC4C760974E891848ACF5B5F9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -112,7 +127,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>BF15DE4E17E389ABC373A576A618294C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C3FCE3C82D7F0512C0A77243FBD91CF3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>E1F78B1C5F8F2CCD0E68552EAF2B9B52</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F3CA6A004BD18BEA9E5502E4089BE94F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
