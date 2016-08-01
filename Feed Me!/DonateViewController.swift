@@ -7,13 +7,45 @@
 //
 
 import Braintree
+import IQDropDownTextField
+import UIKit
 
-class DonateViewController: UIViewController, BTDropInViewControllerDelegate {
+class DonateViewController: UIViewController, UITextFieldDelegate, BTDropInViewControllerDelegate {
     
     var braintreeClient: BTAPIClient?
     var clientToken: String!
+    var amount: String!
+    
+    @IBOutlet weak var otherAmount: UITextField!
+    @IBOutlet weak var amountDonation: UISegmentedControl!
+    @IBOutlet weak var firstLabel: UITextField!
+    @IBOutlet weak var lastLabel: UITextField!
+    @IBOutlet weak var phoneNumber: UITextField!
+    @IBOutlet weak var billingAddress: UITextField!
+    @IBOutlet weak var zipCode: UITextField!
+    @IBOutlet weak var recipientField: IQDropDownTextField!
     
     override func viewDidLoad() {
+        super.viewDidLoad()
+        let tapRecognizer = UITapGestureRecognizer()
+        tapRecognizer.addTarget(self, action: #selector(DonateViewController.didTapView))
+        self.view.addGestureRecognizer(tapRecognizer)
+        
+        self.recipientField.delegate = recipientField.delegate
+        recipientField.isOptionalDropDown = false
+        recipientField.itemList = ["programmer", "teacher", "engineer"]
+        
+        let numberToolbar = UIToolbar(frame: CGRectMake(0, 0, self.view.frame.size.width, 50))
+        numberToolbar.items = [UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(self.doneEditing))]
+        numberToolbar.sizeToFit()
+        recipientField.inputAccessoryView = numberToolbar
+        
+        self.firstLabel.delegate = self
+        self.lastLabel.delegate = self
+        self.billingAddress.delegate = self
+        self.zipCode.delegate = self
+        self.phoneNumber.delegate = self
+        
         let clientTokenURL = NSURL(string: "https://feed-me-application.herokuapp.com/client_token")!
         let clientTokenRequest = NSMutableURLRequest(URL: clientTokenURL)
         clientTokenRequest.setValue("text/plain", forHTTPHeaderField: "Accept")
@@ -27,24 +59,30 @@ class DonateViewController: UIViewController, BTDropInViewControllerDelegate {
             }.resume()
     }
 
+    func doneEditing(CardTypeTextField: IQDropDownTextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
 
     func dropInViewController(viewController: BTDropInViewController,
                               didSucceedWithTokenization paymentMethodNonce: BTPaymentMethodNonce)
     {
         // Send payment method nonce to your server for processing
-        postNonceToServer(paymentMethodNonce.nonce)
+        postNonceToServer(paymentMethodNonce.nonce, amount: amount)
         dismissViewControllerAnimated(true, completion: nil)
+        print(amount)
     }
     
     func dropInViewControllerDidCancel(viewController: BTDropInViewController) {
         dismissViewControllerAnimated(true, completion: nil)
     }
 
-    func postNonceToServer(paymentMethodNonce: String) {
-        let paymentURL = NSURL(string: "https://feed-me-application.herokuapp.com/payment_nonce")!
+    func postNonceToServer(paymentMethodNonce: String, amount: String) {
+        let paymentURL = NSURL(string: "https://feed-me-application.herokuapp.com/payment")!
         let request = NSMutableURLRequest(URL: paymentURL)
-        request.HTTPBody = "payment_method_nonce= \(paymentMethodNonce)".dataUsingEncoding(NSUTF8StringEncoding)
+        request.HTTPBody = "payment_method_nonce=\(paymentMethodNonce)&amountDonation=\(amount)".dataUsingEncoding(NSUTF8StringEncoding)
         request.HTTPMethod = "POST"
+        print(paymentMethodNonce)
         
         NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) -> Void in
             // TODO: Handle success or failure
@@ -73,14 +111,50 @@ class DonateViewController: UIViewController, BTDropInViewControllerDelegate {
         presentViewController(navigationController, animated: true, completion: nil)
     }
     
-
+    func didTapView(){
+        self.view.endEditing(true)
+    }
     
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true);
+        return false;
+    }
+
     func userDidCancelPayment() {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-    @IBAction func donateButton(sender: AnyObject) {
-        self.tappedMyPayButton()
+    @IBAction func submitButton(sender: UIButton) {
     }
     
+    
+    @IBAction func proceedButton(sender: UIBarButtonItem) {
+    
+        print(otherAmount.text!)
+        self.tappedMyPayButton()
+        if otherAmount.text == nil {
+            let alert = UIAlertController(title: "Oops!", message: "Please enter a valid amount.", preferredStyle: UIAlertControllerStyle.Alert)
+            
+            // add an action (button)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            
+            // show the alert
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+    }
+    
+    @IBAction func changeAmount(sender: UISegmentedControl) {
+        if amountDonation.selectedSegmentIndex == 0 {
+            amount = "1"
+        }
+        else if amountDonation.selectedSegmentIndex == 1 {
+            amount = "5"
+        }
+        else if amountDonation.selectedSegmentIndex == 2 {
+            amount = "10"
+        }
+        else if amountDonation.selectedSegmentIndex == 3 {
+            amount = otherAmount.text
+        }
+    }
 }

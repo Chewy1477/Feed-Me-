@@ -115,7 +115,6 @@ class UserViewController: UIViewController, UITextFieldDelegate {
             
     @IBAction func saveFields(sender: UIButton) {
         self.saveText()
-        print("please work")
 
     }
 }
