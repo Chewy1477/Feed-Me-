@@ -17,6 +17,7 @@ class CompanyNotesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         loadCompanies()
         
     }
@@ -27,7 +28,10 @@ class CompanyNotesTableViewController: UITableViewController {
         let pizzaHut = UIImage(named: "Pizza Hut")
         let createPizza = Company(name: "Pizza Hut", photo: pizzaHut, about: "American restaurant chain known for Italian-American cuisine.")
         
-        companies += [createPanera, createPizza, createPizza,createPizza,createPizza,createPizza,createPizza,createPizza,createPizza,createPizza]
+        let dominoes = UIImage(named: "dominoes")
+        let createDominoes = Company(name: "Domnioes", photo: dominoes, about: "Second largest pizza franchise after Pizza Hut.")
+        
+        companies += [createPanera, createPizza, createDominoes]
     }
     
 
@@ -50,9 +54,9 @@ class CompanyNotesTableViewController: UITableViewController {
 
         cell.nameLabel.text = company.name
         cell.photoView.image = company.photo
-        cell.aboutText.text = company.about
+        cell.aboutLabel.text = company.about
         
-
+        
         // 5
         return cell
     }

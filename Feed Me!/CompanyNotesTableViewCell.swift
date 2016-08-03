@@ -12,10 +12,11 @@ class CompanyNotesTableViewCell: UITableViewCell {
     
     // MARK: Properties
     
-    @IBOutlet weak var aboutText: UITextView!
+    @IBOutlet weak var aboutLabel: UILabel!
     @IBOutlet weak var photoView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
-
+    
+    
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected,animated: animated)
 

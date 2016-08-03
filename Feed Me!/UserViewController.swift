@@ -17,21 +17,19 @@ class UserViewController: UIViewController, UITextFieldDelegate {
     var image: UIImage?
     let user = PFUser.currentUser()
 
-    
     @NSManaged var imageFile: PFFile?
 
     
     @IBOutlet weak var nameLabel: UITextField!
     @IBOutlet weak var imagePicker: UIImageView!
     @IBOutlet weak var ageLabel: UITextField!
-    @IBOutlet weak var stateLabel: UITextField!
+    @IBOutlet weak var descriptionLabel: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.nameLabel.delegate = self
         self.ageLabel.delegate = self
-        self.stateLabel.delegate = self
         
         // Do any additional setup after loading the view, typically from a nib.
         self.imagePicker.layer.borderWidth = 3
@@ -40,6 +38,11 @@ class UserViewController: UIViewController, UITextFieldDelegate {
         self.imagePicker.layer.cornerRadius = self.imagePicker.frame.size.width / 2;
         self.imagePicker.clipsToBounds = true
         
+        IconHelper.createIcon(nameLabel, image: "Dog Tag-50")
+        IconHelper.createIcon(ageLabel, image: "Age-50")
+        
+
+        
         self.fetchImage()
         self.retrieveText()
     }
@@ -47,6 +50,10 @@ class UserViewController: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
+    }
+    
+    func didTapView(){
+        self.view.endEditing(true)
     }
     
     @IBAction func photoLibrary(sender: AnyObject) {

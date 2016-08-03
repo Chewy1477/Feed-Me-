@@ -24,6 +24,7 @@ class LoginViewController: PFLogInViewController {
         logoLogin.textColor = UIColor.whiteColor()
         logoLogin.font = UIFont(name: "Arial", size: 60)
         logoLogin.shadowColor = UIColor.lightGrayColor()
+        logoLogin.shadowOffset = CGSizeMake(3,3)
         
         logInView?.logo = logoLogin
         logInView?.contentMode = .ScaleAspectFit
@@ -33,7 +34,27 @@ class LoginViewController: PFLogInViewController {
         logoSign.textColor = UIColor.whiteColor()
         logoSign.font = UIFont(name: "Arial", size: 40)
         logoSign.shadowColor = UIColor.lightGrayColor()
+        logoSign.shadowOffset = CGSizeMake(3,3)
         
+        signUpController?.signUpView?.logo = logoSign
+        signUpController?.signUpView?.contentMode = .ScaleAspectFit
+        
+        logInView?.logInButton?.setBackgroundImage(nil, forState: .Normal)
+        logInView?.logInButton?.backgroundColor = UIColor(red: 52/255, green: 191/255, blue: 73/255, alpha: 1)
+        logInView?.passwordForgottenButton?.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        
+        signUpController?.signUpView?.signUpButton?.setBackgroundImage(nil, forState: .Normal)
+        signUpController?.signUpView?.signUpButton?.backgroundColor = UIColor(red: 200/255, green: 100/255, blue: 200/255, alpha: 1)
+        customizeButton(logInView?.facebookButton!)
+        customizeButton(logInView?.signUpButton!)
+    }
+    
+    func customizeButton(button: UIButton!) {
+        button.setBackgroundImage(nil, forState: .Normal)
+        button.backgroundColor = UIColor.clearColor()
+        button.layer.cornerRadius = 5
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor.whiteColor().CGColor
     }
 
     
@@ -43,7 +64,10 @@ class LoginViewController: PFLogInViewController {
         let motionView: PanoramaView = PanoramaView(frame: self.view.bounds)
         motionView.setImage(UIImage(named:"360")!)
         logInView!.insertSubview(motionView, atIndex: 0)
-//        signUpController?.signUpView!.insertSubview(motionView, atIndex: 0)
+        
+        let signUpView: PanoramaView = PanoramaView(frame: self.view.bounds)
+        signUpView.setImage(UIImage(named:"360")!)
+        signUpController?.signUpView?.insertSubview(signUpView, atIndex: 0)
     }
     
 }

@@ -21,6 +21,7 @@
 		C35EAB4B1D3828EF000F59A5 /* Pacifico.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C35EAB4A1D3828EF000F59A5 /* Pacifico.ttf */; };
 		C35EAB511D3863D9000F59A5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35EAB501D3863D9000F59A5 /* LoginViewController.swift */; };
 		C368564E1D40207D00A41885 /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C368564D1D40207C00A41885 /* LocationSearchTable.swift */; };
+		C36AFC5E1D529EFE0065366A /* IconHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36AFC5D1D529EFD0065366A /* IconHelper.swift */; };
 		C37AE2DE1D359C7500F3C0B0 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37AE2DD1D359C7500F3C0B0 /* UserViewController.swift */; };
 		C38B5FA01D39753600440B0C /* PhotoTakingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38B5F9F1D39753600440B0C /* PhotoTakingHelper.swift */; };
 		C391594D1D49522B00B2315E /* DonateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C391594C1D49522B00B2315E /* DonateViewController.swift */; };
@@ -51,6 +52,7 @@
 		C35EAB4A1D3828EF000F59A5 /* Pacifico.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Pacifico.ttf; sourceTree = "<group>"; };
 		C35EAB501D3863D9000F59A5 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C368564D1D40207C00A41885 /* LocationSearchTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
+		C36AFC5D1D529EFD0065366A /* IconHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconHelper.swift; sourceTree = "<group>"; };
 		C37AE2DD1D359C7500F3C0B0 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		C38B5F9F1D39753600440B0C /* PhotoTakingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoTakingHelper.swift; sourceTree = "<group>"; };
 		C391594C1D49522B00B2315E /* DonateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DonateViewController.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				C38B5F9F1D39753600440B0C /* PhotoTakingHelper.swift */,
 				C35EAB421D37064E000F59A5 /* ParseLoginHelper.swift */,
 				C35EAB0E1D36DED7000F59A5 /* ErrorHandling.swift */,
+				C36AFC5D1D529EFD0065366A /* IconHelper.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -323,6 +326,7 @@
 				C368564E1D40207D00A41885 /* LocationSearchTable.swift in Sources */,
 				C35EAB511D3863D9000F59A5 /* LoginViewController.swift in Sources */,
 				C3EB81CE1D42E19F000345C7 /* PanoramaView.swift in Sources */,
+				C36AFC5E1D529EFE0065366A /* IconHelper.swift in Sources */,
 				C37AE2DE1D359C7500F3C0B0 /* UserViewController.swift in Sources */,
 				C34E11A91D3EEA2B00643482 /* LocateCompanyViewController.swift in Sources */,
 				C38B5FA01D39753600440B0C /* PhotoTakingHelper.swift in Sources */,

@@ -16,7 +16,7 @@ class PanoramaView: UIView {
     //Constatnts
     let CRMotionViewRotationMinimumThreshold:CGFloat = 0.1
     let CRMotionGyroUpdateInterval:NSTimeInterval = 1 / 100
-    let CRMotionViewRotationFactor:CGFloat = 4.0
+    let CRMotionViewRotationFactor:CGFloat = 0.5
 
     // Managing Motion Sensing
     private var motionManager: CMMotionManager = CMMotionManager()

@@ -51,7 +51,6 @@ class HomeViewController: UIViewController {
         returnViewController.signUpController?.delegate = parseLoginHelper
         
         PFUser.logOut()
-        self.dismissViewControllerAnimated(true, completion: nil)
         
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         self.window?.rootViewController = returnViewController

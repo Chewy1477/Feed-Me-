@@ -15,6 +15,8 @@ class DonateViewController: UIViewController, UITextFieldDelegate, BTDropInViewC
     var braintreeClient: BTAPIClient?
     var clientToken: String!
     var amount: String!
+    var getPostal: String!
+    var filledFields: Bool = false
     
     @IBOutlet weak var otherAmount: UITextField!
     @IBOutlet weak var amountDonation: UISegmentedControl!
@@ -27,6 +29,7 @@ class DonateViewController: UIViewController, UITextFieldDelegate, BTDropInViewC
     
     override func viewDidLoad() {
         super.viewDidLoad()
+            
         let tapRecognizer = UITapGestureRecognizer()
         tapRecognizer.addTarget(self, action: #selector(DonateViewController.didTapView))
         self.view.addGestureRecognizer(tapRecognizer)
@@ -68,21 +71,19 @@ class DonateViewController: UIViewController, UITextFieldDelegate, BTDropInViewC
                               didSucceedWithTokenization paymentMethodNonce: BTPaymentMethodNonce)
     {
         // Send payment method nonce to your server for processing
-        postNonceToServer(paymentMethodNonce.nonce, amount: amount)
+        postNonceToServer(paymentMethodNonce.nonce, amount: amount, getPostal: getPostal)
         dismissViewControllerAnimated(true, completion: nil)
-        print(amount)
     }
     
     func dropInViewControllerDidCancel(viewController: BTDropInViewController) {
         dismissViewControllerAnimated(true, completion: nil)
     }
 
-    func postNonceToServer(paymentMethodNonce: String, amount: String) {
+    func postNonceToServer(paymentMethodNonce: String, amount: String, getPostal: String) {
         let paymentURL = NSURL(string: "https://feed-me-application.herokuapp.com/payment")!
         let request = NSMutableURLRequest(URL: paymentURL)
-        request.HTTPBody = "payment_method_nonce=\(paymentMethodNonce)&amountDonation=\(amount)".dataUsingEncoding(NSUTF8StringEncoding)
+        request.HTTPBody = "payment_method_nonce=\(paymentMethodNonce)&amountDonation=\(amount)&postalNumber=\(getPostal)".dataUsingEncoding(NSUTF8StringEncoding)
         request.HTTPMethod = "POST"
-        print(paymentMethodNonce)
         
         NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) -> Void in
             // TODO: Handle success or failure
@@ -125,36 +126,67 @@ class DonateViewController: UIViewController, UITextFieldDelegate, BTDropInViewC
     }
     
     @IBAction func submitButton(sender: UIButton) {
+    
+        if firstLabel.isValidEntry() && lastLabel.isValidEntry() && phoneNumber.isValidEntry() && billingAddress.isValidEntry() && zipCode.isValidEntry() {
+            let alert = UIAlertController(title: "Complete!", message: "Information submitted.", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+            
+            filledFields = true
+        }
+        else {
+            let alert = UIAlertController(title: "Oops!", message: "Please fill in every field.", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
     }
     
     
-    @IBAction func proceedButton(sender: UIBarButtonItem) {
     
-        print(otherAmount.text!)
-        self.tappedMyPayButton()
-        if otherAmount.text == nil {
-            let alert = UIAlertController(title: "Oops!", message: "Please enter a valid amount.", preferredStyle: UIAlertControllerStyle.Alert)
+    @IBAction func proceedButton(sender: UIBarButtonItem) {
+        
+        if filledFields == true {
+            self.tappedMyPayButton()
+        }
+        else {
+            let alert = UIAlertController(title: "Oops!", message: "Please click submit.", preferredStyle: UIAlertControllerStyle.Alert)
             
             // add an action (button)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
             
             // show the alert
             self.presentViewController(alert, animated: true, completion: nil)
+
         }
     }
     
+    
     @IBAction func changeAmount(sender: UISegmentedControl) {
-        if amountDonation.selectedSegmentIndex == 0 {
+        switch sender.selectedSegmentIndex {
+        case 0:
             amount = "1"
-        }
-        else if amountDonation.selectedSegmentIndex == 1 {
+        case 1:
             amount = "5"
-        }
-        else if amountDonation.selectedSegmentIndex == 2 {
+        case 2:
             amount = "10"
-        }
-        else if amountDonation.selectedSegmentIndex == 3 {
+        case 3:
             amount = otherAmount.text
+        default:
+            break;
+        }  //Switch
+    }
+
+    
+}
+
+extension UITextField {
+    
+    func isValidEntry() -> Bool {
+        if self.text != nil && self.text != "" {
+            return true
+        } else {
+            return false
         }
     }
 }
+

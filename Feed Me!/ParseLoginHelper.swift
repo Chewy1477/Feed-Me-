@@ -23,8 +23,8 @@ class ParseLoginHelper : NSObject {
     static let usernameNotFoundLocalizedDescription = "Could not retrieve Facebook username"
     
     let callback: ParseLoginHelperCallback
+    var parseLoginHelper: ParseLoginHelper!
     var window: UIWindow?
-
     
     init(callback: ParseLoginHelperCallback) {
         self.callback = callback
@@ -41,10 +41,10 @@ extension ParseLoginHelper : PFLogInViewControllerDelegate {
         if !isFacebookLogin {
             // Plain parse login, we can return user immediately
             self.callback(user, nil)
+//            
+//            logInController.logInView?.usernameField?.text = ""
+//            logInController.logInView?.passwordField?.text = ""
             
-            logInController.logInView?.usernameField?.text = ""
-            logInController.logInView?.passwordField?.text = ""
-                        
         } else {
             // if this is a Facebook login, fetch the username from Facebook
             FBSDKGraphRequest(graphPath: "me", parameters: nil).startWithCompletionHandler {
@@ -82,8 +82,37 @@ extension ParseLoginHelper : PFSignUpViewControllerDelegate {
     
     func signUpViewController(signUpController: PFSignUpViewController, didSignUpUser user: PFUser) {
         
-        self.callback(user, nil)
+        signUpController.minPasswordLength = 6
         
+        if signUpController.signUpView!.usernameField!.isValidEntry() && signUpController.signUpView!.emailField!.isValidEntry() {
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let tabBarController = storyboard.instantiateViewControllerWithIdentifier("TabBarController")
+            // 3
+            signUpController.presentViewController(tabBarController, animated:true, completion:nil)
+            
+            self.callback(user, nil)
+            }
+      
+        else {
+            
+            let alert = UIAlertController(title: "Oops!", message: "Please enter a valid username/email.", preferredStyle: UIAlertControllerStyle.Alert)
+            // add an action (button)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            // show the alert
+            signUpController.presentViewController(alert, animated: true, completion: nil)
+
+        }
     }
+}
+
+extension PFTextField {
     
+    override func isValidEntry() -> Bool {
+        if self.text != nil && self.text != "" {
+            return true
+        } else {
+            return false
+        }
+    }
 }
