@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C33895541D3D91CF00C5ACCA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33895531D3D91CF00C5ACCA /* HomeViewController.swift */; };
+		C30C137F1D53FAE700FC4354 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30C137E1D53FAE700FC4354 /* ProfileViewController.swift */; };
 		C33F49EC1D3435B000D1CC81 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33F49EB1D3435B000D1CC81 /* AppDelegate.swift */; };
 		C33F49F11D3435B000D1CC81 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C33F49EF1D3435B000D1CC81 /* Main.storyboard */; };
 		C33F49F31D3435B000D1CC81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C33F49F21D3435B000D1CC81 /* Assets.xcassets */; };
@@ -24,6 +24,7 @@
 		C36AFC5E1D529EFE0065366A /* IconHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36AFC5D1D529EFD0065366A /* IconHelper.swift */; };
 		C37AE2DE1D359C7500F3C0B0 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37AE2DD1D359C7500F3C0B0 /* UserViewController.swift */; };
 		C38B5FA01D39753600440B0C /* PhotoTakingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38B5F9F1D39753600440B0C /* PhotoTakingHelper.swift */; };
+		C38E7BCF1D53C9CD0044EBFC /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38E7BCE1D53C9CD0044EBFC /* AboutViewController.swift */; };
 		C391594D1D49522B00B2315E /* DonateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C391594C1D49522B00B2315E /* DonateViewController.swift */; };
 		C3EB81CD1D42E19F000345C7 /* PanoramaIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EB81CB1D42E19F000345C7 /* PanoramaIndicator.swift */; };
 		C3EB81CE1D42E19F000345C7 /* PanoramaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EB81CC1D42E19F000345C7 /* PanoramaView.swift */; };
@@ -34,8 +35,8 @@
 		0EB390BE726D5F45ED5B3CC9 /* Pods-Feed Me!.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Feed Me!.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Feed Me!/Pods-Feed Me!.debug.xcconfig"; sourceTree = "<group>"; };
 		45A4CAB8F47B73EE4AE9772B /* Pods_Feed_Me_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Feed_Me_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CCAD3E8B20EFAD3EBF8E459 /* Pods-Feed Me!.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Feed Me!.release.xcconfig"; path = "Pods/Target Support Files/Pods-Feed Me!/Pods-Feed Me!.release.xcconfig"; sourceTree = "<group>"; };
+		C30C137E1D53FAE700FC4354 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		C32BDE401D35B78F0096678F /* Feed-Me-Bridgin-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Feed-Me-Bridgin-Header.h"; sourceTree = "<group>"; };
-		C33895531D3D91CF00C5ACCA /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C33F49E81D3435B000D1CC81 /* Feed Me!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Feed Me!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C33F49EB1D3435B000D1CC81 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C33F49F01D3435B000D1CC81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -55,6 +56,7 @@
 		C36AFC5D1D529EFD0065366A /* IconHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconHelper.swift; sourceTree = "<group>"; };
 		C37AE2DD1D359C7500F3C0B0 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		C38B5F9F1D39753600440B0C /* PhotoTakingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoTakingHelper.swift; sourceTree = "<group>"; };
+		C38E7BCE1D53C9CD0044EBFC /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		C391594C1D49522B00B2315E /* DonateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DonateViewController.swift; sourceTree = "<group>"; };
 		C3EB81CB1D42E19F000345C7 /* PanoramaIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanoramaIndicator.swift; sourceTree = "<group>"; };
 		C3EB81CC1D42E19F000345C7 /* PanoramaView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanoramaView.swift; sourceTree = "<group>"; };
@@ -168,9 +170,10 @@
 			children = (
 				C391594C1D49522B00B2315E /* DonateViewController.swift */,
 				C35EAB501D3863D9000F59A5 /* LoginViewController.swift */,
-				C33895531D3D91CF00C5ACCA /* HomeViewController.swift */,
 				C37AE2DD1D359C7500F3C0B0 /* UserViewController.swift */,
 				C34E11A31D3E9DD500643482 /* CompanyNotesTableViewController.swift */,
+				C38E7BCE1D53C9CD0044EBFC /* AboutViewController.swift */,
+				C30C137E1D53FAE700FC4354 /* ProfileViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -329,12 +332,13 @@
 				C36AFC5E1D529EFE0065366A /* IconHelper.swift in Sources */,
 				C37AE2DE1D359C7500F3C0B0 /* UserViewController.swift in Sources */,
 				C34E11A91D3EEA2B00643482 /* LocateCompanyViewController.swift in Sources */,
+				C30C137F1D53FAE700FC4354 /* ProfileViewController.swift in Sources */,
 				C38B5FA01D39753600440B0C /* PhotoTakingHelper.swift in Sources */,
 				C34E11A01D3E98B500643482 /* CompanyNotesTableViewCell.swift in Sources */,
+				C38E7BCF1D53C9CD0044EBFC /* AboutViewController.swift in Sources */,
 				C35EAB431D37064E000F59A5 /* ParseLoginHelper.swift in Sources */,
 				C33F49EC1D3435B000D1CC81 /* AppDelegate.swift in Sources */,
 				C391594D1D49522B00B2315E /* DonateViewController.swift in Sources */,
-				C33895541D3D91CF00C5ACCA /* HomeViewController.swift in Sources */,
 				C34E11A71D3EBE6E00643482 /* Company.swift in Sources */,
 				C34E11A41D3E9DD500643482 /* CompanyNotesTableViewController.swift in Sources */,
 				C35EAB0F1D36DED7000F59A5 /* ErrorHandling.swift in Sources */,

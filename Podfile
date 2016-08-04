@@ -12,6 +12,7 @@ target 'Feed Me!' do
   pod 'ParseFacebookUtilsV4'
   pod 'ParseUI'
   pod 'Braintree'
+  pod ‘BTNavigationDropdownMenu’
 
 
   # Pods for Feed Me!
