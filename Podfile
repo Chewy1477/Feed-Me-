@@ -13,6 +13,8 @@ target 'Feed Me!' do
   pod 'ParseUI'
   pod 'Braintree'
   pod ‘BTNavigationDropdownMenu’
+  pod 'CorePlot', '~> 2.1'
+
 
 
   # Pods for Feed Me!

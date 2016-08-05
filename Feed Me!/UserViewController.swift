@@ -9,9 +9,10 @@
 import UIKit
 import Parse
 import BTNavigationDropdownMenu
+import CorePlot
 
 
-class UserViewController: UIViewController, UITextFieldDelegate {
+class UserViewController: UIViewController {
     
     var imagePickerController: UIImagePickerController?
     var photoTakingHelper: PhotoTakingHelper?
@@ -21,13 +22,17 @@ class UserViewController: UIViewController, UITextFieldDelegate {
     var window: UIWindow?
     var parseLoginHelper: ParseLoginHelper!
     
+    @IBOutlet weak var hostView: CPTGraphHostingView!
+    
     @NSManaged var imageFile: PFFile?
 
-    @IBOutlet weak var nameLabel: UITextField!
     @IBOutlet weak var imagePicker: UIImageView!
-    @IBOutlet weak var ageLabel: UITextField!
-    @IBOutlet weak var descriptionLabel: UITextField!
 
+
+    @IBOutlet weak var displayName: UILabel!
+    @IBOutlet weak var displayAge: UILabel!
+    @IBOutlet weak var displayMusic: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -47,14 +52,14 @@ class UserViewController: UIViewController, UITextFieldDelegate {
             }
         }
 
-        
         let items = ["Home", "About", "Profile", "Sign Out"]
+
         
         self.navigationController?.navigationBar.translucent = false
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.0/255.0, green:180/255.0, blue:220/255.0, alpha: 1.0)
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         
-        let menuView = BTNavigationDropdownMenu(navigationController: self.navigationController, containerView: self.navigationController!.view, title: "Hello!", items: items)
+        let menuView = BTNavigationDropdownMenu(navigationController: self.navigationController, containerView: self.navigationController!.view, title: items[0], items: items)
         
         menuView.cellHeight = 50
         menuView.cellBackgroundColor = self.navigationController?.navigationBar.barTintColor
@@ -71,11 +76,9 @@ class UserViewController: UIViewController, UITextFieldDelegate {
 
         menuView.didSelectItemAtIndexHandler = {(indexPath: Int) -> () in
             switch items[indexPath] {
-            case "Home":
-                self.dismissViewControllerAnimated(true, completion: nil)
             case "About":
-                let about = self.storyboard?.instantiateViewControllerWithIdentifier("AboutViewController")
-                self.presentViewController(about!, animated: true, completion: nil)
+                let about = self.storyboard!.instantiateViewControllerWithIdentifier("AboutViewController")
+                self.presentViewController(about, animated: true, completion: nil)
             case "Profile":
                 let profile = self.storyboard?.instantiateViewControllerWithIdentifier("ProfileViewController")
                 self.presentViewController(profile!, animated: true, completion: nil)
@@ -85,12 +88,7 @@ class UserViewController: UIViewController, UITextFieldDelegate {
                 break
             }
         }
-    
 
-        self.nameLabel.delegate = self
-        self.ageLabel.delegate = self
-        self.descriptionLabel.delegate = self
-        
         // Do any additional setup after loading the view, typically from a nib.
         self.imagePicker.layer.borderWidth = 3
         self.imagePicker.layer.borderColor = UIColor(red:100/255.0, green:225/255.0, blue:227/255.0, alpha: 1.0).CGColor
@@ -104,15 +102,63 @@ class UserViewController: UIViewController, UITextFieldDelegate {
         singleTap.numberOfTapsRequired = 1;
         imagePicker.addGestureRecognizer(singleTap)
         
-        IconHelper.createIcon(nameLabel, image: "Dog Tag-50")
-        IconHelper.createIcon(ageLabel, image: "Age-50")
-        IconHelper.createIcon(descriptionLabel, image: "About-50")
-
         
         self.fetchImage()
         self.retrieveText()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        initPlot()
+    }
+    
+    func initPlot() {
+        configureHostView()
+        configureGraph()
+        configureChart()
+        configureLegend()
+    }
+    
+    func configureHostView() {
+        hostView.allowPinchScaling = false
+
+    }
+    
+    func configureGraph() {
+        let graph = CPTXYGraph(frame: hostView.bounds)
+        hostView.hostedGraph = graph
+        graph.paddingLeft = 0.0
+        graph.paddingTop = 0.0
+        graph.paddingRight = 0.0
+        graph.paddingBottom = 0.0
+        graph.axisSet = nil
+        
+        // 2 - Create text style
+        let textStyle: CPTMutableTextStyle = CPTMutableTextStyle()
+        textStyle.color = CPTColor.blackColor()
+        textStyle.fontName = "HelveticaNeue-Bold"
+        textStyle.fontSize = 16.0
+        textStyle.textAlignment = .Center
+        
+        // 3 - Set graph title and text style
+        graph.title = "Total Donations"
+        graph.titleTextStyle = textStyle
+        graph.titlePlotAreaFrameAnchor = CPTRectAnchor.Top
+    }
+    
+    func configureChart() {
+    }
+    
+    func configureLegend() {
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        self.retrieveText()
+        
+    }
+
+
     func signOut() {
         let returnViewController = LoginViewController()
         
@@ -128,16 +174,7 @@ class UserViewController: UIViewController, UITextFieldDelegate {
 
     }
    
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        self.view.endEditing(true)
-        return false
-    }
-    
-    func didTapView(textField: UITextField) -> Bool {
-        self.view.endEditing(true)
-        return false
-    }
-    
+        
     func getPhoto(recognizer: UIGestureRecognizer) {
         takePhoto()
 
@@ -154,26 +191,15 @@ class UserViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func saveText() {
-        let nameSave = self.nameLabel.text
-        let ageSave = self.ageLabel.text
-        let descriptionSave = self.descriptionLabel.text
-        
-        user!.setObject(nameSave!, forKey: "Name")
-        user!.setObject(ageSave!, forKey: "Age")
-        user!.setObject(descriptionSave!, forKey: "Description")
-        user!.saveInBackgroundWithBlock(nil)
-        
-    }
+   
 
     func retrieveText() {
-        guard let nameGet = (user?["Name"] as! String?), ageGet = (user?["Age"] as! String?), descriptionGet = (user?["Description"] as! String?)  else {
+        guard let nameGet = (user?["Name"] as! String?), ageGet = (user?["Age"] as! String?), musicGet = (user?["Music"] as! String?)  else {
             return
         }
-
-        self.nameLabel.text = nameGet
-        self.ageLabel.text = ageGet
-        self.descriptionLabel.text = descriptionGet
+        self.displayName.text = nameGet
+        self.displayAge.text = ageGet
+        self.displayMusic.text = musicGet
         
     }
 
@@ -202,9 +228,28 @@ class UserViewController: UIViewController, UITextFieldDelegate {
         }
 
     }
-            
-    @IBAction func saveFields(sender: UIButton) {
-        self.saveText()
 
+}
+
+extension UserViewController: CPTPieChartDataSource, CPTPieChartDelegate {
+    
+    func numberOfRecordsForPlot(plot: CPTPlot) -> UInt {
+        return 0
     }
+    
+    func numberForPlot(plot: CPTPlot, field fieldEnum: UInt, recordIndex idx: UInt) -> AnyObject? {
+        return 0
+    }
+    
+    func dataLabelForPlot(plot: CPTPlot, recordIndex idx: UInt) -> CPTLayer? {
+        return nil
+    }
+    
+    func sliceFillForPieChart(pieChart: CPTPieChart, recordIndex idx: UInt) -> CPTFill? {
+        return nil
+    }
+    
+    func legendTitleForPieChart(pieChart: CPTPieChart, recordIndex idx: UInt) -> String? {
+        return nil
+    }  
 }

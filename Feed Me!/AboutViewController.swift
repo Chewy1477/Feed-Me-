@@ -17,6 +17,7 @@ class AboutViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        aboutImage.image = UIImage(named: "Helping Hand")
     }
     
     @IBAction func backButton(sender: UIButton) {
