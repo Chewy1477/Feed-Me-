@@ -18,36 +18,12 @@ class DonateViewController: UIViewController, UITextFieldDelegate, BTDropInViewC
     var getPostal: String!
     var filledFields: Bool = false
     
-    @IBOutlet weak var otherAmount: UITextField!
+
     @IBOutlet weak var amountDonation: UISegmentedControl!
-    @IBOutlet weak var firstLabel: UITextField!
-    @IBOutlet weak var lastLabel: UITextField!
-    @IBOutlet weak var phoneNumber: UITextField!
-    @IBOutlet weak var billingAddress: UITextField!
-    @IBOutlet weak var zipCode: UITextField!
-    @IBOutlet weak var recipientField: IQDropDownTextField!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-            
-        let tapRecognizer = UITapGestureRecognizer()
-        tapRecognizer.addTarget(self, action: #selector(DonateViewController.didTapView))
-        self.view.addGestureRecognizer(tapRecognizer)
-        
-        self.recipientField.delegate = recipientField.delegate
-        recipientField.isOptionalDropDown = false
-        recipientField.itemList = ["programmer", "teacher", "engineer"]
-        
-        let numberToolbar = UIToolbar(frame: CGRectMake(0, 0, self.view.frame.size.width, 50))
-        numberToolbar.items = [UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(self.doneEditing))]
-        numberToolbar.sizeToFit()
-        recipientField.inputAccessoryView = numberToolbar
-        
-        self.firstLabel.delegate = self
-        self.lastLabel.delegate = self
-        self.billingAddress.delegate = self
-        self.zipCode.delegate = self
-        self.phoneNumber.delegate = self
         
         let clientTokenURL = NSURL(string: "https://feed-me-application.herokuapp.com/client_token")!
         let clientTokenRequest = NSMutableURLRequest(URL: clientTokenURL)
@@ -62,10 +38,7 @@ class DonateViewController: UIViewController, UITextFieldDelegate, BTDropInViewC
             }.resume()
     }
 
-    func doneEditing(CardTypeTextField: IQDropDownTextField) -> Bool {
-        self.view.endEditing(true)
-        return false
-    }
+    
 
     func dropInViewController(viewController: BTDropInViewController,
                               didSucceedWithTokenization paymentMethodNonce: BTPaymentMethodNonce)
@@ -111,36 +84,15 @@ class DonateViewController: UIViewController, UITextFieldDelegate, BTDropInViewC
         
         presentViewController(navigationController, animated: true, completion: nil)
     }
-    
-    func didTapView(){
-        self.view.endEditing(true)
-    }
-    
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        self.view.endEditing(true);
-        return false;
-    }
 
     func userDidCancelPayment() {
         dismissViewControllerAnimated(true, completion: nil)
     }
-    
-    @IBAction func submitButton(sender: UIButton) {
-    
-        if firstLabel.isValidEntry() && lastLabel.isValidEntry() && phoneNumber.isValidEntry() && billingAddress.isValidEntry() && zipCode.isValidEntry() {
-            let alert = UIAlertController(title: "Complete!", message: "Information submitted.", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
-            
-            filledFields = true
-        }
-        else {
-            let alert = UIAlertController(title: "Oops!", message: "Please fill in every field.", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
-        }
+
+    @IBAction func fillButton(sender: UIButton) {
+        let billing = self.storyboard!.instantiateViewControllerWithIdentifier("BillingViewController")
+        self.presentViewController(billing, animated: true, completion: nil)
     }
-    
     
     
     @IBAction func proceedButton(sender: UIBarButtonItem) {
@@ -149,13 +101,7 @@ class DonateViewController: UIViewController, UITextFieldDelegate, BTDropInViewC
             self.tappedMyPayButton()
         }
         else {
-            let alert = UIAlertController(title: "Oops!", message: "Please click submit.", preferredStyle: UIAlertControllerStyle.Alert)
-            
-            // add an action (button)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-            
-            // show the alert
-            self.presentViewController(alert, animated: true, completion: nil)
+            self.alert("Oops!", message: "Please click submit.")
 
         }
     }
@@ -169,8 +115,6 @@ class DonateViewController: UIViewController, UITextFieldDelegate, BTDropInViewC
             amount = "5"
         case 2:
             amount = "10"
-        case 3:
-            amount = otherAmount.text
         default:
             break;
         }  //Switch
@@ -179,14 +123,14 @@ class DonateViewController: UIViewController, UITextFieldDelegate, BTDropInViewC
     
 }
 
-extension UITextField {
+
+extension UIViewController {
     
-    func isValidEntry() -> Bool {
-        if self.text != nil && self.text != "" {
-            return true
-        } else {
-            return false
-        }
+    func alert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
     }
+    
 }
 

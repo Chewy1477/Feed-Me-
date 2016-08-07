@@ -21,6 +21,8 @@ class UserViewController: UIViewController {
     var menuView: BTNavigationDropdownMenu!
     var window: UIWindow?
     var parseLoginHelper: ParseLoginHelper!
+    var graphSlices: [Slice]!
+    var donations: [String: NSNumber] = [:]
     
     @IBOutlet weak var hostView: CPTGraphHostingView!
     
@@ -31,7 +33,8 @@ class UserViewController: UIViewController {
 
     @IBOutlet weak var displayName: UILabel!
     @IBOutlet weak var displayAge: UILabel!
-    @IBOutlet weak var displayMusic: UILabel!
+    @IBOutlet weak var displayFood: UILabel!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,7 +94,7 @@ class UserViewController: UIViewController {
 
         // Do any additional setup after loading the view, typically from a nib.
         self.imagePicker.layer.borderWidth = 3
-        self.imagePicker.layer.borderColor = UIColor(red:100/255.0, green:225/255.0, blue:227/255.0, alpha: 1.0).CGColor
+        self.imagePicker.layer.borderColor = UIColor(red: 0.0/255.0, green:160.0/255.0, blue:195.0/255.0, alpha: 1.0).CGColor
         
         self.imagePicker.layer.cornerRadius = self.imagePicker.frame.size.width / 2;
         self.imagePicker.clipsToBounds = true
@@ -147,9 +150,53 @@ class UserViewController: UIViewController {
     }
     
     func configureChart() {
+        let graph = hostView.hostedGraph!
+        
+        // 2 - Create the chart
+        let pieChart = CPTPieChart()
+        pieChart.delegate = self
+        pieChart.dataSource = self
+        pieChart.pieRadius = (min(hostView.bounds.size.width, hostView.bounds.size.height) * 0.7) / 2
+        pieChart.identifier = graph.title
+        pieChart.startAngle = CGFloat(M_PI_4)
+        pieChart.sliceDirection = .Clockwise
+        pieChart.labelOffset = -0.6 * pieChart.pieRadius
+        
+        // 3 - Configure border style
+        let borderStyle = CPTMutableLineStyle()
+        borderStyle.lineColor = CPTColor.whiteColor()
+        borderStyle.lineWidth = 2.0
+        pieChart.borderLineStyle = borderStyle
+        
+        // 4 - Configure text style
+        let textStyle = CPTMutableTextStyle()
+        textStyle.color = CPTColor.whiteColor()
+        textStyle.textAlignment = .Center
+        pieChart.labelTextStyle = textStyle
+        
+        // 3 - Add chart to graph
+        graph.addPlot(pieChart)
     }
     
     func configureLegend() {
+        guard let graph = hostView.hostedGraph else { return }
+        
+        // 2 - Create legend
+        let theLegend = CPTLegend(graph: graph)
+        
+        // 3 - Configure legend
+        theLegend.numberOfColumns = 1
+        theLegend.fill = CPTFill(color: CPTColor.whiteColor())
+        let textStyle = CPTMutableTextStyle()
+        textStyle.fontSize = 18
+        theLegend.textStyle = textStyle
+        
+        // 4 - Add legend to graph
+        graph.legend = theLegend
+        graph.legendAnchor = .Right
+        graph.legendDisplacement = CGPoint(x: 0, y: 0.0)
+
+    
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -194,12 +241,12 @@ class UserViewController: UIViewController {
    
 
     func retrieveText() {
-        guard let nameGet = (user?["Name"] as! String?), ageGet = (user?["Age"] as! String?), musicGet = (user?["Music"] as! String?)  else {
+        guard let nameGet = (user?["Name"] as! String?), ageGet = (user?["Age"] as! String?), foodGet = (user?["Food"] as! String?)  else {
             return
         }
         self.displayName.text = nameGet
         self.displayAge.text = ageGet
-        self.displayMusic.text = musicGet
+        self.displayFood.text = foodGet
         
     }
 
@@ -228,28 +275,47 @@ class UserViewController: UIViewController {
         }
 
     }
+   
+    func addValues(parameter: String) -> [String: NSNumber] {
+        donations[parameter] = 10
+        print(donations)
+        return donations
+    }
 
 }
 
 extension UserViewController: CPTPieChartDataSource, CPTPieChartDelegate {
     
     func numberOfRecordsForPlot(plot: CPTPlot) -> UInt {
-        return 0
+        return 2
     }
     
     func numberForPlot(plot: CPTPlot, field fieldEnum: UInt, recordIndex idx: UInt) -> AnyObject? {
-        return 0
+        graphSlices = [Slice(name: "You"), Slice(name: "Total")]
+        let getSlice = graphSlices[Int(idx)]
+        self.addValues(getSlice.name)
+        let display = donations[getSlice.name]!.floatValue
+        return display
     }
     
     func dataLabelForPlot(plot: CPTPlot, recordIndex idx: UInt) -> CPTLayer? {
-        return nil
+        let value = donations[graphSlices[Int(idx)].name]!.floatValue
+        let layer = CPTTextLayer(text: String(format: "\(graphSlices[Int(idx)].name)\n%.2f", value))
+        layer.textStyle = plot.labelTextStyle
+        return layer
     }
     
     func sliceFillForPieChart(pieChart: CPTPieChart, recordIndex idx: UInt) -> CPTFill? {
-        return nil
+        switch idx {
+        case 0:   return CPTFill(color: CPTColor(componentRed:0.0/255.0, green:160.0/255.0, blue:195.0/255.0, alpha:1.00))
+        case 1:   return CPTFill(color: CPTColor(componentRed: 230.0/255, green:126.0/255.0, blue:34.0/255.0, alpha:1.00))
+        default:  return nil
+        }
     }
-    
+
     func legendTitleForPieChart(pieChart: CPTPieChart, recordIndex idx: UInt) -> String? {
-        return nil
-    }  
+        return graphSlices[Int(idx)].name
+    }
 }
+
+
