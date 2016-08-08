@@ -52,7 +52,7 @@ class DonateViewController: UIViewController, UITextFieldDelegate, BTDropInViewC
                               didSucceedWithTokenization paymentMethodNonce: BTPaymentMethodNonce)
     {
         // Send payment method nonce to your server for processing
-        print(amount)
+        print(getPostal)
         postNonceToServer(paymentMethodNonce.nonce, amount: amount, getPostal: getPostal)
         dismissViewControllerAnimated(true, completion: nil)
     }
