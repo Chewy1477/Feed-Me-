@@ -110,7 +110,7 @@ class DonateViewController: UIViewController, UITextFieldDelegate, BTDropInViewC
             self.tappedMyPayButton()
         }
         else {
-            self.alert("Oops!", message: "Please click click the pencil.")
+            self.alert("Oops!", message: "Please click the pencil.")
 
         }
     }
@@ -120,10 +120,8 @@ class DonateViewController: UIViewController, UITextFieldDelegate, BTDropInViewC
         switch amountDonation.selectedSegmentIndex {
         case 0:
             amount = "1"
-            print("HI")
         case 1:
             amount = "5"
-            print("WHY")
         case 2:
             amount = "10"
         default:
