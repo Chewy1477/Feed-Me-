@@ -24,10 +24,9 @@ class UserViewController: UIViewController {
     var graphSlices: [Slice]!
     var donations: [String: NSNumber] = [:]
     
-    @IBOutlet weak var hostView: CPTGraphHostingView!
-    
     @NSManaged var imageFile: PFFile?
 
+    @IBOutlet weak var hostView: CPTGraphHostingView!
     @IBOutlet weak var imagePicker: UIImageView!
 
 
@@ -66,7 +65,7 @@ class UserViewController: UIViewController {
         
         menuView.cellHeight = 50
         menuView.cellBackgroundColor = self.navigationController?.navigationBar.barTintColor
-        menuView.cellSelectionColor = UIColor(red: 14.0/255.0, green:206.0/255.0, blue:251.0/255.0, alpha: 1.0)
+        menuView.cellSelectionColor = UIColor(red: 0.0/255.0, green:180.0/255.0, blue:220.0/255.0, alpha: 1.0)
         menuView.cellTextLabelColor = UIColor.whiteColor()
         menuView.cellTextLabelFont = UIFont(name: "Avenir-Heavy", size: 17)
         menuView.cellTextLabelAlignment = .Left // .Center // .Right // .Left
@@ -94,7 +93,7 @@ class UserViewController: UIViewController {
 
         // Do any additional setup after loading the view, typically from a nib.
         self.imagePicker.layer.borderWidth = 3
-        self.imagePicker.layer.borderColor = UIColor(red: 14.0/255.0, green:206.0/255.0, blue:251.0/255.0, alpha: 1.0).CGColor
+        self.imagePicker.layer.borderColor = UIColor(red: 0.0/255.0, green:180.0/255.0, blue:220.0/255.0, alpha: 1.0).CGColor
         
         self.imagePicker.layer.cornerRadius = self.imagePicker.frame.size.width / 2;
         self.imagePicker.clipsToBounds = true
@@ -307,7 +306,7 @@ extension UserViewController: CPTPieChartDataSource, CPTPieChartDelegate {
     
     func sliceFillForPieChart(pieChart: CPTPieChart, recordIndex idx: UInt) -> CPTFill? {
         switch idx {
-        case 0:   return CPTFill(color: CPTColor(componentRed:14.0/255.0, green:206.0/255.0, blue:251.0/255.0, alpha:1.00))
+        case 0:   return CPTFill(color: CPTColor(componentRed:0.0/255.0, green:180.0/255.0, blue:220.0/255.0, alpha:1.00))
         case 1:   return CPTFill(color: CPTColor(componentRed: 230.0/255, green:126.0/255.0, blue:34.0/255.0, alpha:1.00))
         default:  return nil
         }

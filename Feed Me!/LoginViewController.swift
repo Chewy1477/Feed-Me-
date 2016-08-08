@@ -66,7 +66,7 @@ class LoginViewController: PFLogInViewController {
         logInView!.insertSubview(motionView, atIndex: 0)
         
         let signUpView: PanoramaView = PanoramaView(frame: self.view.bounds)
-        signUpView.setImage(UIImage(named:"blur")!)
+        signUpView.setImage(UIImage(named:"hand")!)
         signUpController?.signUpView?.insertSubview(signUpView, atIndex: 0)
     }
     

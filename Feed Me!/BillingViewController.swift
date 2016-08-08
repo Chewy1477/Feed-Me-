@@ -13,9 +13,8 @@ import Parse
 
 class BillingViewController: UIViewController, UITextFieldDelegate, IQDropDownTextFieldDelegate {
     
-    var filledFields: Bool = false
     let user = PFUser.currentUser()
-
+    var checkSubmit: Bool = false
     
     @IBOutlet weak var lastName: UITextField!
     @IBOutlet weak var firstName: UITextField!
@@ -58,14 +57,16 @@ class BillingViewController: UIViewController, UITextFieldDelegate, IQDropDownTe
         stateField.inputAccessoryView = iqToolbar
         
         IconHelper.createIcon(firstName, image: "Phone Filled-50")
-//        IconHelper.createIcon(lastName, image: "Age-50")
-//        IconHelper.createIcon(phoneNumber, image: "About-50")
-//        IconHelper.createIcon(billingAddress, image: "Dog Tag-50")
-//        IconHelper.createIcon(zipCode, image: "Age-50")
-        
-        self.retrieveText()
-    
+
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+//        print((user?["First"] as! String?))
+        self.retrieveText()
+        
+    }
+
     
     func didTapView(){
         self.view.endEditing(true)
@@ -91,17 +92,6 @@ class BillingViewController: UIViewController, UITextFieldDelegate, IQDropDownTe
         let saveZip = self.zipCode.text
         let saveRecipient = self.recipientField.selectedItem
         
-        
-//        if self.profileName.text!.characters.count > 9 {
-//            self.alert("Too Long!", message: "Please enter a nickname less than 10 characters.")
-//        }
-//        else if self.profileFood.text!.characters.count > 9 {
-//            self.alert("Too Long!", message: "Please enter something that is less than 10 characters.")
-//        }
-//        else if self.profileAge.text!.characters.count > 3 {
-//            self.alert("Invalid!", message: "Please enter a valid age.")
-//        }
-        
         user!.setObject(saveFirst!, forKey: "First")
         user!.setObject(saveLast!, forKey: "Last")
         user!.setObject(savePhone!, forKey: "Phone")
@@ -111,18 +101,19 @@ class BillingViewController: UIViewController, UITextFieldDelegate, IQDropDownTe
         user!.setObject(saveZip!, forKey: "Zip")
         user!.setObject(saveRecipient!, forKey: "Recipient")
 
-
         user!.saveInBackgroundWithBlock(nil)
-        self.dismissViewControllerAnimated(true, completion: nil)
+        
+
+        
         
     }
     
     func retrieveText() {
-        guard let nameGet = (user?["Name"] as! String?), lastGet = (user?["Last"] as! String?), phoneGet = (user?["Phone"] as! String?), billingGet = (user?["Billing"] as! String?), cityGet = (user?["City"] as! String?), stateGet = (user?["State"] as! String?), zipGet = (user?["Zip"] as! String?), recipientGet = (user?["Recipient"] as! String?)  else {
+        guard let firstGet = (user?["First"] as! String?), lastGet = (user?["Last"] as! String?), phoneGet = (user?["Phone"] as! String?), billingGet = (user?["Billing"] as! String?), cityGet = (user?["City"] as! String?), stateGet = (user?["State"] as! String?), zipGet = (user?["Zip"] as! String?), recipientGet = (user?["Recipient"] as! String?)  else {
             return
         }
-        
-        self.firstName.text = nameGet
+
+        self.firstName.text = firstGet
         self.lastName.text = lastGet
         self.phoneNumber.text = phoneGet
         self.billingAddress.text = billingGet
@@ -132,6 +123,16 @@ class BillingViewController: UIViewController, UITextFieldDelegate, IQDropDownTe
         self.recipientField.selectedItem = recipientGet
         
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "segueDonateLib" {
+            if let DonateViewController = segue.destinationViewController as? DonateViewController {
+                DonateViewController.checkSubmit = true
+                DonateViewController.canProceed = true
+                DonateViewController.getPostal = self.zipCode.text
+            }
+        }
+    }
 
     
     @IBAction func cancelButton(sender: UIBarButtonItem) {
@@ -139,10 +140,13 @@ class BillingViewController: UIViewController, UITextFieldDelegate, IQDropDownTe
     }
     
     @IBAction func submitButton(sender: UIButton) {
-        if firstName.isValidEntry() && lastName.isValidEntry() && phoneNumber.isValidEntry() && billingAddress.isValidEntry() && zipCode.isValidEntry() {
-            self.alert("Complete", message: "Information Submitted!")
-            filledFields = true
-            self.dismissViewControllerAnimated(true, completion: nil)
+        if firstName.isValidEntry() && lastName.isValidEntry() && phoneNumber.isValidEntry() && billingAddress.isValidEntry() && zipCode.isValidEntry() && cityField.isValidEntry() {
+            performSegueWithIdentifier("segueDonateLib", sender: sender)
+            
+            self.saveText()
+//            self.dismissViewControllerAnimated(true, completion: nil)
+
+
         }
         else {
             self.alert("Oops!", message: "Please fill in every field.")

@@ -10,13 +10,16 @@ import Braintree
 import IQDropDownTextField
 import UIKit
 
+
 class DonateViewController: UIViewController, UITextFieldDelegate, BTDropInViewControllerDelegate {
     
     var braintreeClient: BTAPIClient?
     var clientToken: String!
     var amount: String!
     var getPostal: String!
-    var filledFields: Bool = false
+    var checkSubmit: Bool = false
+    var canProceed: Bool = false
+
 
     @IBOutlet weak var amountDonation: UISegmentedControl!
 
@@ -36,13 +39,20 @@ class DonateViewController: UIViewController, UITextFieldDelegate, BTDropInViewC
             // Continue to the next section to learn more...
             }.resume()
     }
-
+    
+    override func viewDidAppear(animated: Bool) {
+        if checkSubmit == true {
+            self.alert("Complete!", message: "Information Submitted.")
+            checkSubmit = false
+        }
+    }
     
 
     func dropInViewController(viewController: BTDropInViewController,
                               didSucceedWithTokenization paymentMethodNonce: BTPaymentMethodNonce)
     {
         // Send payment method nonce to your server for processing
+        print(amount)
         postNonceToServer(paymentMethodNonce.nonce, amount: amount, getPostal: getPostal)
         dismissViewControllerAnimated(true, completion: nil)
     }
@@ -96,27 +106,29 @@ class DonateViewController: UIViewController, UITextFieldDelegate, BTDropInViewC
     
     @IBAction func proceedButton(sender: UIBarButtonItem) {
         
-        if filledFields == true {
+        if canProceed == true {
             self.tappedMyPayButton()
         }
         else {
-            self.alert("Oops!", message: "Please click submit.")
+            self.alert("Oops!", message: "Please click click the pencil.")
 
         }
     }
     
     
     @IBAction func changeAmount(sender: UISegmentedControl) {
-        switch sender.selectedSegmentIndex {
+        switch amountDonation.selectedSegmentIndex {
         case 0:
             amount = "1"
+            print("HI")
         case 1:
             amount = "5"
+            print("WHY")
         case 2:
             amount = "10"
         default:
             break;
-        }  //Switch
+        }
     }
 
     
