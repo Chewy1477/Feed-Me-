@@ -15,8 +15,7 @@ class DonateViewController: UIViewController, UITextFieldDelegate, BTDropInViewC
     
     var braintreeClient: BTAPIClient?
     var clientToken: String!
-    var amount: String!
-    var getPostal: String!
+    var amount: String = "1"
     var checkSubmit: Bool = false
     var canProceed: Bool = false
 
@@ -38,6 +37,7 @@ class DonateViewController: UIViewController, UITextFieldDelegate, BTDropInViewC
             // As an example, you may wish to present our Drop-in UI at this point.
             // Continue to the next section to learn more...
             }.resume()
+        
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -52,8 +52,7 @@ class DonateViewController: UIViewController, UITextFieldDelegate, BTDropInViewC
                               didSucceedWithTokenization paymentMethodNonce: BTPaymentMethodNonce)
     {
         // Send payment method nonce to your server for processing
-        print(getPostal)
-        postNonceToServer(paymentMethodNonce.nonce, amount: amount, getPostal: getPostal)
+        postNonceToServer(paymentMethodNonce.nonce, amount: amount)
         dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -61,10 +60,10 @@ class DonateViewController: UIViewController, UITextFieldDelegate, BTDropInViewC
         dismissViewControllerAnimated(true, completion: nil)
     }
 
-    func postNonceToServer(paymentMethodNonce: String, amount: String, getPostal: String) {
+    func postNonceToServer(paymentMethodNonce: String, amount: String) {
         let paymentURL = NSURL(string: "https://feed-me-application.herokuapp.com/payment")!
         let request = NSMutableURLRequest(URL: paymentURL)
-        request.HTTPBody = "payment_method_nonce=\(paymentMethodNonce)&amountDonation=\(amount)&postalNumber=\(getPostal)".dataUsingEncoding(NSUTF8StringEncoding)
+        request.HTTPBody = "payment_method_nonce=\(paymentMethodNonce)&amountDonation=\(amount)".dataUsingEncoding(NSUTF8StringEncoding)
         request.HTTPMethod = "POST"
         
         NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) -> Void in

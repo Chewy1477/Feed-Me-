@@ -129,7 +129,6 @@ class BillingViewController: UIViewController, UITextFieldDelegate, IQDropDownTe
             if let DonateViewController = segue.destinationViewController as? DonateViewController {
                 DonateViewController.checkSubmit = true
                 DonateViewController.canProceed = true
-                DonateViewController.getPostal = self.zipCode.text
             }
         }
     }
@@ -142,10 +141,7 @@ class BillingViewController: UIViewController, UITextFieldDelegate, IQDropDownTe
     @IBAction func submitButton(sender: UIButton) {
         if firstName.isValidEntry() && lastName.isValidEntry() && phoneNumber.isValidEntry() && billingAddress.isValidEntry() && zipCode.isValidEntry() && cityField.isValidEntry() {
             performSegueWithIdentifier("segueDonateLib", sender: sender)
-            
             self.saveText()
-//            self.dismissViewControllerAnimated(true, completion: nil)
-
 
         }
         else {
