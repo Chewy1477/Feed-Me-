@@ -24,6 +24,9 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 14.0/255.0, green:206.0/255.0, blue:251.0/255.0, alpha: 1.0)
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
+        
         self.profileName.delegate = self
         self.profileAge.delegate = self
         self.profileFood.delegate = self
@@ -40,7 +43,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     func saveText() {
         let nameSave = self.profileName.text
         let ageSave = self.profileAge.text
-        let musicSave = self.profileFood.text
+        let foodSave = self.profileFood.text
         
         if self.profileName.text!.characters.count > 9 {
             self.alert("Too Long!", message: "Please enter a nickname less than 10 characters.")
@@ -52,10 +55,11 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             self.alert("Invalid!", message: "Please enter a valid age.")
         }
         
-        user!.setObject(nameSave!, forKey: "Name")
+        user!.setObject(nameSave!, forKey: "Nickname")
         user!.setObject(ageSave!, forKey: "Age")
-        user!.setObject(musicSave!, forKey: "Food")
+        user!.setObject(foodSave!, forKey: "Food")
         user!.saveInBackgroundWithBlock(nil)
+        
         self.dismissViewControllerAnimated(true, completion: nil)
         
     }
@@ -70,6 +74,9 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         return false
     }
 
+    @IBAction func cancelButton(sender: UIBarButtonItem) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     
     @IBAction func saveButton(sender: UIButton) {
         self.saveText()

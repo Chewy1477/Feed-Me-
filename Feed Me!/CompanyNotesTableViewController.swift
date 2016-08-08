@@ -17,6 +17,8 @@ class CompanyNotesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 14.0/255.0, green:206.0/255.0, blue:251.0/255.0, alpha: 1.0)
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
         
         loadCompanies()
         
@@ -29,7 +31,7 @@ class CompanyNotesTableViewController: UITableViewController {
         let createPizza = Company(name: "Pizza Hut", photo: pizzaHut, about: "American restaurant chain known for Italian-American cuisine.")
         
         let dominoes = UIImage(named: "dominoes")
-        let createDominoes = Company(name: "Domnioes", photo: dominoes, about: "Second largest pizza franchise after Pizza Hut.")
+        let createDominoes = Company(name: "Dominoes", photo: dominoes, about: "Second largest pizza franchise after Pizza Hut.")
         
         companies += [createPanera, createPizza, createDominoes]
     }

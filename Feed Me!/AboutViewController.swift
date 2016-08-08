@@ -17,7 +17,11 @@ class AboutViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        aboutImage.image = UIImage(named: "Helping Hand")
+        
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 14.0/255.0, green:206.0/255.0, blue:251.0/255.0, alpha: 1.0)
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
+        
+        aboutImage.image = UIImage(named: "stats")
     }
     
     @IBAction func backButton(sender: UIButton) {

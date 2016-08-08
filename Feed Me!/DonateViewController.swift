@@ -17,7 +17,6 @@ class DonateViewController: UIViewController, UITextFieldDelegate, BTDropInViewC
     var amount: String!
     var getPostal: String!
     var filledFields: Bool = false
-    
 
     @IBOutlet weak var amountDonation: UISegmentedControl!
 
