@@ -76,7 +76,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let loginViewController = LoginViewController()
             
             loginViewController.fields = [.UsernameAndPassword, .LogInButton, .SignUpButton, .PasswordForgotten, .Facebook]
-                        
+            
+            loginViewController.emailAsUsername = false
+            loginViewController.signUpController?.emailAsUsername = false
+        
             loginViewController.delegate = parseLoginHelper
             loginViewController.signUpController?.delegate = parseLoginHelper
             

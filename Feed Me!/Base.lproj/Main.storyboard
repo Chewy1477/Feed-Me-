@@ -147,9 +147,9 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6lT-32-nDK">
-                                <rect key="frame" x="0.0" y="350" width="600" height="250"/>
+                                <rect key="frame" x="0.0" y="370" width="600" height="230"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="250" id="ySU-Ic-s31"/>
+                                    <constraint firstAttribute="height" constant="230" id="ySU-Ic-s31"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y7e-4g-iYP">
@@ -187,12 +187,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Nuo-Jb-MCC" firstAttribute="top" secondItem="LDy-KL-5QT" secondAttribute="top" id="2c8-cP-k2p"/>
                             <constraint firstAttribute="trailing" secondItem="6lT-32-nDK" secondAttribute="trailing" id="3f2-le-sYb"/>
+                            <constraint firstAttribute="trailing" secondItem="Nuo-Jb-MCC" secondAttribute="trailing" id="5B9-Tb-LO6"/>
                             <constraint firstItem="Nuo-Jb-MCC" firstAttribute="leading" secondItem="LDy-KL-5QT" secondAttribute="leading" id="5xK-qA-pwm"/>
                             <constraint firstItem="A96-Pg-68U" firstAttribute="centerX" secondItem="LDy-KL-5QT" secondAttribute="centerX" id="72Q-OP-oFn"/>
                             <constraint firstItem="bLf-Tl-wzg" firstAttribute="centerX" secondItem="LDy-KL-5QT" secondAttribute="centerX" id="BkD-PY-l6W"/>
                             <constraint firstItem="bLf-Tl-wzg" firstAttribute="top" secondItem="w4e-lY-cJG" secondAttribute="bottom" constant="30" id="Boo-Lp-0Go"/>
                             <constraint firstItem="Nuo-Jb-MCC" firstAttribute="top" secondItem="LDy-KL-5QT" secondAttribute="top" id="DzY-Ja-cOS"/>
+                            <constraint firstItem="Nuo-Jb-MCC" firstAttribute="leading" secondItem="LDy-KL-5QT" secondAttribute="leading" id="R2k-Ct-OfE"/>
                             <constraint firstItem="w4e-lY-cJG" firstAttribute="centerX" secondItem="LDy-KL-5QT" secondAttribute="centerX" id="WHN-aF-tVq"/>
                             <constraint firstItem="6lT-32-nDK" firstAttribute="leading" secondItem="LDy-KL-5QT" secondAttribute="leading" id="Wr2-4M-9Cf"/>
                             <constraint firstItem="A96-Pg-68U" firstAttribute="top" secondItem="euf-sw-qMT" secondAttribute="bottom" constant="100" id="dhD-Pn-8Jd"/>
@@ -230,10 +233,10 @@
                                 <rect key="frame" x="0.0" y="60" width="600" height="260"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bI8-8h-Ycl">
-                                <rect key="frame" x="45" y="411" width="230" height="128"/>
+                                <rect key="frame" x="45" y="411" width="250" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="230" id="Bpl-X1-DgE"/>
+                                    <constraint firstAttribute="width" constant="250" id="Bpl-X1-DgE"/>
                                     <constraint firstAttribute="height" constant="128" id="Fvw-Hq-Rg3"/>
                                 </constraints>
                                 <string key="text">Over 40% of food every year is not eaten and thrown away. Facilitate the distribution of food to the hungry using technology and crowdfunding. Users can select a recipient to donate to and have the option to write a heartful message that will be displayed on their walls.</string>
@@ -272,6 +275,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="8TL-Zl-5Cy" firstAttribute="leading" secondItem="Jgs-W0-oMv" secondAttribute="leading" id="1te-fR-mML"/>
                             <constraint firstItem="ele-yz-1Lp" firstAttribute="top" secondItem="tOl-n4-kty" secondAttribute="bottom" constant="40" id="6aB-Jj-u7w"/>
                             <constraint firstItem="VB2-7X-gKL" firstAttribute="top" secondItem="ele-yz-1Lp" secondAttribute="bottom" constant="60" id="9fb-Dj-RMI"/>
                             <constraint firstItem="x3R-1n-kQb" firstAttribute="top" secondItem="QjL-H8-tj8" secondAttribute="bottom" constant="40" id="Fgp-l3-qAt"/>
@@ -279,6 +283,8 @@
                             <constraint firstItem="bI8-8h-Ycl" firstAttribute="top" secondItem="VB2-7X-gKL" secondAttribute="bottom" constant="10" id="PaS-Ti-N3l"/>
                             <constraint firstAttribute="trailing" secondItem="ele-yz-1Lp" secondAttribute="trailing" id="RnU-pt-In2"/>
                             <constraint firstAttribute="trailing" secondItem="8TL-Zl-5Cy" secondAttribute="trailing" id="VJf-mB-Uqk"/>
+                            <constraint firstAttribute="trailing" secondItem="8TL-Zl-5Cy" secondAttribute="trailing" id="ZdW-ng-zeb"/>
+                            <constraint firstItem="8TL-Zl-5Cy" firstAttribute="top" secondItem="Jgs-W0-oMv" secondAttribute="top" id="aFO-fs-q1Y"/>
                             <constraint firstItem="bI8-8h-Ycl" firstAttribute="leading" secondItem="Jgs-W0-oMv" secondAttribute="leadingMargin" constant="25" id="aV9-Ef-M3t"/>
                             <constraint firstItem="x3R-1n-kQb" firstAttribute="top" secondItem="ele-yz-1Lp" secondAttribute="bottom" constant="280" id="fdn-ns-yVh"/>
                             <constraint firstItem="QjL-H8-tj8" firstAttribute="centerX" secondItem="Jgs-W0-oMv" secondAttribute="centerX" id="gAL-bb-keD"/>
@@ -367,7 +373,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1LJ-Kz-4jq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1504" y="1388"/>
+            <point key="canvasLocation" x="2316" y="1388"/>
         </scene>
         <!--Locate Company View Controller-->
         <scene sceneID="QME-IZ-9bH">
@@ -415,7 +421,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UIf-Cp-vSo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2253" y="1156"/>
+            <point key="canvasLocation" x="3065" y="1156"/>
         </scene>
         <!--Location Search Table-->
         <scene sceneID="WYI-hq-Z5H">
@@ -459,7 +465,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tyf-3w-UOc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2253" y="1917"/>
+            <point key="canvasLocation" x="3065" y="1917"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="tIL-OG-YlV">
@@ -473,7 +479,7 @@
                     <connections>
                         <segue destination="wI5-lm-n3O" kind="relationship" relationship="viewControllers" id="3CH-zk-oe1"/>
                         <segue destination="8py-a4-e44" kind="relationship" relationship="viewControllers" id="l0Y-Af-DEJ"/>
-                        <segue destination="Pfe-Um-ZtB" kind="relationship" relationship="viewControllers" id="1x8-a0-SwD"/>
+                        <segue destination="f9k-0U-T4S" kind="relationship" relationship="viewControllers" id="1x8-a0-SwD"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SQV-UJ-87D" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -499,9 +505,9 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5dA-VX-faD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="772" y="1412"/>
+            <point key="canvasLocation" x="1584" y="1412"/>
         </scene>
-        <!--Donate View Controller-->
+        <!--Donate-->
         <scene sceneID="8Zr-vc-YUN">
             <objects>
                 <viewController id="Pfe-Um-ZtB" customClass="DonateViewController" customModule="Feed_Me_" customModuleProvider="target" sceneMemberID="viewController">
@@ -514,7 +520,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="5rV-co-49L">
-                                <rect key="frame" x="150" y="160" width="300" height="31"/>
+                                <rect key="frame" x="150" y="164" width="300" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="kaL-T2-1qK"/>
                                     <constraint firstAttribute="height" constant="30" id="zhF-ll-ChA"/>
@@ -530,7 +536,7 @@
                                 </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Amount" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="szr-IE-Hd9">
-                                <rect key="frame" x="240" y="115" width="120" height="30"/>
+                                <rect key="frame" x="240" y="119" width="120" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="P2j-4U-EG2"/>
                                     <constraint firstAttribute="height" constant="30" id="l25-p9-eIS"/>
@@ -540,7 +546,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Click The Button Below" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yvr-Yh-lkP">
-                                <rect key="frame" x="210" y="260" width="180" height="30"/>
+                                <rect key="frame" x="210" y="244" width="180" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Ana-k6-pcI"/>
                                     <constraint firstAttribute="width" constant="180" id="fkA-jS-JNi"/>
@@ -550,13 +556,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Click The Arrow To Proceed To Checkout" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cUI-PO-3IL">
-                                <rect key="frame" x="168" y="415" width="265" height="17"/>
+                                <rect key="frame" x="168" y="379" width="265" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.90980392160000001" green="0.59607843140000005" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MHP-Y8-ZBz">
-                                <rect key="frame" x="275" y="305" width="50" height="50"/>
+                                <rect key="frame" x="275" y="289" width="50" height="50"/>
                                 <state key="normal" backgroundImage="Pencil Tip Filled-50">
                                     <color key="titleColor" red="0.0" green="0.70588235290000001" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -564,54 +570,29 @@
                                     <action selector="fillButton:" destination="Pfe-Um-ZtB" eventType="touchUpInside" id="k61-6x-VcB"/>
                                 </connections>
                             </button>
-                            <navigationBar contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s4S-mx-foG">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="65"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="65" id="Fgh-vP-aqD"/>
-                                    <constraint firstAttribute="width" constant="600" id="Vzn-qR-AqF"/>
-                                </constraints>
-                                <color key="barTintColor" red="0.0" green="0.70588235290000001" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <textAttributes key="titleTextAttributes">
-                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </textAttributes>
-                                <items>
-                                    <navigationItem title="Donate!" id="Jhc-RX-hfL">
-                                        <barButtonItem key="rightBarButtonItem" image="Arrow Filled-50" id="3Bq-vp-S5t">
-                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <connections>
-                                                <action selector="proceedButton:" destination="Pfe-Um-ZtB" id="nLq-GS-nWZ"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="cUI-PO-3IL" firstAttribute="centerX" secondItem="dwk-15-CnI" secondAttribute="centerX" id="5dT-ur-nSc"/>
-                            <constraint firstItem="s4S-mx-foG" firstAttribute="leading" secondItem="dwk-15-CnI" secondAttribute="leading" id="8s1-wj-KOv"/>
                             <constraint firstItem="5rV-co-49L" firstAttribute="top" secondItem="szr-IE-Hd9" secondAttribute="bottom" constant="15" id="AZk-C2-UAI"/>
                             <constraint firstItem="MHP-Y8-ZBz" firstAttribute="centerX" secondItem="dwk-15-CnI" secondAttribute="centerX" id="GBr-q6-ro6"/>
                             <constraint firstItem="szr-IE-Hd9" firstAttribute="centerX" secondItem="dwk-15-CnI" secondAttribute="centerX" id="IOk-vh-25K"/>
                             <constraint firstItem="MHP-Y8-ZBz" firstAttribute="top" secondItem="Yvr-Yh-lkP" secondAttribute="bottom" constant="15" id="Mah-xB-xK0"/>
                             <constraint firstItem="Yvr-Yh-lkP" firstAttribute="centerX" secondItem="dwk-15-CnI" secondAttribute="centerX" id="OqX-hX-ueh"/>
                             <constraint firstItem="5rV-co-49L" firstAttribute="centerX" secondItem="dwk-15-CnI" secondAttribute="centerX" id="QYH-pS-tHm"/>
-                            <constraint firstItem="cUI-PO-3IL" firstAttribute="top" secondItem="MHP-Y8-ZBz" secondAttribute="bottom" constant="60" id="WuH-mf-izs"/>
-                            <constraint firstItem="Yvr-Yh-lkP" firstAttribute="top" secondItem="5rV-co-49L" secondAttribute="bottom" constant="70" id="Xfk-lY-oBk"/>
-                            <constraint firstItem="5rV-co-49L" firstAttribute="top" secondItem="Kza-5d-rxJ" secondAttribute="bottom" constant="140" id="b3K-j9-VP6"/>
-                            <constraint firstAttribute="trailing" secondItem="s4S-mx-foG" secondAttribute="trailing" id="pcy-95-VGZ"/>
+                            <constraint firstItem="cUI-PO-3IL" firstAttribute="top" secondItem="MHP-Y8-ZBz" secondAttribute="bottom" constant="40" id="WuH-mf-izs"/>
+                            <constraint firstItem="Yvr-Yh-lkP" firstAttribute="top" secondItem="5rV-co-49L" secondAttribute="bottom" constant="50" id="Xfk-lY-oBk"/>
+                            <constraint firstItem="5rV-co-49L" firstAttribute="top" secondItem="Kza-5d-rxJ" secondAttribute="bottom" constant="100" id="b3K-j9-VP6"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="Donate-50" id="m67-H9-eQg">
-                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-5"/>
-                    </tabBarItem>
+                    <navigationItem key="navigationItem" title="Donate" id="knK-En-v9l"/>
                     <connections>
                         <outlet property="amountDonation" destination="5rV-co-49L" id="BwK-os-FPK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4ED-uS-dbI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-128" y="1787"/>
+            <point key="canvasLocation" x="684" y="1787"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kob-7c-ehv">
@@ -877,7 +858,10 @@
                         <constraints>
                             <constraint firstItem="Qkn-7Y-Wf7" firstAttribute="leading" secondItem="fIK-ke-Rbl" secondAttribute="leading" id="8sD-cL-b1X"/>
                             <constraint firstItem="6tu-j0-2e4" firstAttribute="top" secondItem="YxO-9s-wY6" secondAttribute="bottom" constant="20" id="Bkt-10-ZVf"/>
+                            <constraint firstItem="Qkn-7Y-Wf7" firstAttribute="leading" secondItem="fIK-ke-Rbl" secondAttribute="leading" id="E0G-Ub-l32"/>
+                            <constraint firstItem="Qkn-7Y-Wf7" firstAttribute="top" secondItem="fIK-ke-Rbl" secondAttribute="top" id="QdD-Oe-Uu6"/>
                             <constraint firstItem="YxO-9s-wY6" firstAttribute="leading" secondItem="fIK-ke-Rbl" secondAttribute="leading" constant="20" id="RQe-5h-AR5"/>
+                            <constraint firstAttribute="trailing" secondItem="Qkn-7Y-Wf7" secondAttribute="trailing" id="Ybq-2r-GVE"/>
                             <constraint firstItem="hmG-Qk-GIO" firstAttribute="top" secondItem="utd-NS-gB6" secondAttribute="bottom" constant="80" id="a2j-Rz-hyG"/>
                             <constraint firstItem="Qkn-7Y-Wf7" firstAttribute="top" secondItem="fIK-ke-Rbl" secondAttribute="top" id="bo2-gW-LNl"/>
                             <constraint firstAttribute="trailing" secondItem="YxO-9s-wY6" secondAttribute="trailing" constant="20" id="bum-VU-c9L"/>
@@ -901,16 +885,36 @@
                         <outlet property="recipientField" destination="Wa8-be-z6d" id="iWg-cT-OTX"/>
                         <outlet property="stateField" destination="8xE-ZV-9zZ" id="wIM-Jn-TfD"/>
                         <outlet property="zipCode" destination="Eg5-fa-lMU" id="uoI-4u-jC2"/>
-                        <segue destination="Pfe-Um-ZtB" kind="show" identifier="segueDonateLib" id="GZc-qb-EPE"/>
+                        <segue destination="f9k-0U-T4S" kind="show" identifier="segueDonateLib" id="GZc-qb-EPE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vi4-Ge-RoE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-816" y="1787"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="tiO-la-byu">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="f9k-0U-T4S" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="Donate-50" id="m67-H9-eQg">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-5"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="f0w-ah-xrP">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Pfe-Um-ZtB" kind="relationship" relationship="rootViewController" id="JJd-wy-ueK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ezd-Va-3A8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-128" y="1787"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="Arrow Filled-50" width="50" height="50"/>
         <image name="Current-Location-512" width="512" height="512"/>
         <image name="Donate-50" width="50" height="50"/>
         <image name="Marker-50" width="50" height="50"/>
@@ -918,6 +922,6 @@
         <image name="User Group Man Man-50" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1x8-a0-SwD"/>
+        <segue reference="GZc-qb-EPE"/>
     </inferredMetricsTieBreakers>
 </document>

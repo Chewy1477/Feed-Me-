@@ -18,6 +18,7 @@
 		C34E11A41D3E9DD500643482 /* CompanyNotesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34E11A31D3E9DD500643482 /* CompanyNotesTableViewController.swift */; };
 		C34E11A71D3EBE6E00643482 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34E11A61D3EBE6D00643482 /* Company.swift */; };
 		C34E11A91D3EEA2B00643482 /* LocateCompanyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34E11A81D3EEA2A00643482 /* LocateCompanyViewController.swift */; };
+		C35E686C1D5A8768008504E6 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35E686B1D5A8767008504E6 /* SignUpViewController.swift */; };
 		C35EAB0F1D36DED7000F59A5 /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35EAB0E1D36DED7000F59A5 /* ErrorHandling.swift */; };
 		C35EAB431D37064E000F59A5 /* ParseLoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35EAB421D37064E000F59A5 /* ParseLoginHelper.swift */; };
 		C35EAB4B1D3828EF000F59A5 /* Pacifico.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C35EAB4A1D3828EF000F59A5 /* Pacifico.ttf */; };
@@ -52,6 +53,7 @@
 		C34E11A61D3EBE6D00643482 /* Company.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 		C34E11A81D3EEA2A00643482 /* LocateCompanyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocateCompanyViewController.swift; sourceTree = "<group>"; };
 		C35614CC1D47E4C000C6D5B8 /* Feed Me!.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Feed Me!.entitlements"; sourceTree = "<group>"; };
+		C35E686B1D5A8767008504E6 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		C35EAB0E1D36DED7000F59A5 /* ErrorHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHandling.swift; sourceTree = "<group>"; };
 		C35EAB421D37064E000F59A5 /* ParseLoginHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseLoginHelper.swift; sourceTree = "<group>"; };
 		C35EAB4A1D3828EF000F59A5 /* Pacifico.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Pacifico.ttf; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 				C38E7BCE1D53C9CD0044EBFC /* AboutViewController.swift */,
 				C30C137E1D53FAE700FC4354 /* ProfileViewController.swift */,
 				C31E5D3D1D56B05800B7F06C /* BillingViewController.swift */,
+				C35E686B1D5A8767008504E6 /* SignUpViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 				C38E7BCF1D53C9CD0044EBFC /* AboutViewController.swift in Sources */,
 				C31E5D3E1D56B05800B7F06C /* BillingViewController.swift in Sources */,
 				C35EAB431D37064E000F59A5 /* ParseLoginHelper.swift in Sources */,
+				C35E686C1D5A8768008504E6 /* SignUpViewController.swift in Sources */,
 				C33F49EC1D3435B000D1CC81 /* AppDelegate.swift in Sources */,
 				C391594D1D49522B00B2315E /* DonateViewController.swift in Sources */,
 				C34E11A71D3EBE6E00643482 /* Company.swift in Sources */,

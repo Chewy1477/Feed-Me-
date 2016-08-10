@@ -102,10 +102,6 @@ class BillingViewController: UIViewController, UITextFieldDelegate, IQDropDownTe
         user!.setObject(saveRecipient!, forKey: "Recipient")
 
         user!.saveInBackgroundWithBlock(nil)
-        
-
-        
-        
     }
     
     func retrieveText() {
@@ -126,9 +122,12 @@ class BillingViewController: UIViewController, UITextFieldDelegate, IQDropDownTe
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "segueDonateLib" {
-            if let DonateViewController = segue.destinationViewController as? DonateViewController {
-                DonateViewController.checkSubmit = true
-                DonateViewController.canProceed = true
+            if let navController = segue.destinationViewController as? UINavigationController {
+                
+                let donateViewController = navController.viewControllers.first as! DonateViewController
+
+                donateViewController.checkSubmit = true
+                donateViewController.canProceed = true
             }
         }
     }

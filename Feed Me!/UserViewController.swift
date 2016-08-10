@@ -28,12 +28,9 @@ class UserViewController: UIViewController {
 
     @IBOutlet weak var hostView: CPTGraphHostingView!
     @IBOutlet weak var imagePicker: UIImageView!
-
-
     @IBOutlet weak var displayName: UILabel!
     @IBOutlet weak var displayAge: UILabel!
     @IBOutlet weak var displayFood: UILabel!
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,7 +53,6 @@ class UserViewController: UIViewController {
 
         let items = ["Home", "About", "Profile", "Sign Out"]
 
-        
         self.navigationController?.navigationBar.translucent = false
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.0/255.0, green:180/255.0, blue:220/255.0, alpha: 1.0)
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
@@ -103,7 +99,6 @@ class UserViewController: UIViewController {
         let singleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UserViewController.getPhoto(_:)))
         singleTap.numberOfTapsRequired = 1;
         imagePicker.addGestureRecognizer(singleTap)
-        
         
         self.fetchImage()
         self.retrieveText()
@@ -209,6 +204,10 @@ class UserViewController: UIViewController {
         let returnViewController = LoginViewController()
         
         returnViewController.fields = [.UsernameAndPassword, .LogInButton, .SignUpButton, .PasswordForgotten, .Facebook]
+        
+        returnViewController.emailAsUsername = false
+        returnViewController.signUpController?.emailAsUsername = false
+
         returnViewController.delegate = parseLoginHelper
         returnViewController.signUpController?.delegate = parseLoginHelper
         
@@ -220,13 +219,11 @@ class UserViewController: UIViewController {
 
     }
    
-        
     func getPhoto(recognizer: UIGestureRecognizer) {
         takePhoto()
 
     }
 
-    
     func takePhoto() {
         // instantiate photo taking class, provide callback for when photo is selected
         photoTakingHelper = PhotoTakingHelper(viewController: self.tabBarController!) { (image: UIImage?) in
@@ -236,8 +233,6 @@ class UserViewController: UIViewController {
             self.uploadImage()
         }
     }
-    
-   
 
     func retrieveText() {
         guard let nameGet = (user?["Nickname"] as! String?), ageGet = (user?["Age"] as! String?), foodGet = (user?["Food"] as! String?)  else {
@@ -248,13 +243,11 @@ class UserViewController: UIViewController {
         self.displayFood.text = foodGet
         
     }
-
     
     func uploadImage() {
         if let image = image {
             guard let imageData = UIImageJPEGRepresentation(image, 0.8) else {return}
             guard let imageFile = PFFile(name: "image.jpg", data: imageData) else {return}
-            
             
             user!.setObject(imageFile, forKey: "imageFile")
             user!.saveInBackgroundWithBlock(nil)
@@ -277,7 +270,6 @@ class UserViewController: UIViewController {
    
     func addValues(parameter: String) -> [String: NSNumber] {
         donations[parameter] = 10
-        print(donations)
         return donations
     }
 

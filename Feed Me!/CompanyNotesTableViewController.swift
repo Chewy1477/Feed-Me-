@@ -35,7 +35,6 @@ class CompanyNotesTableViewController: UITableViewController {
         
         companies += [createPanera, createPizza, createDominoes]
     }
-    
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return companies.count
@@ -45,23 +44,19 @@ class CompanyNotesTableViewController: UITableViewController {
         return 1
     }
 
-    // 2
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        // 3
-        let cell = tableView.dequeueReusableCellWithIdentifier("CompanyNotesTableViewCell", forIndexPath: indexPath) as! CompanyNotesTableViewCell
         
+        let cell = tableView.dequeueReusableCellWithIdentifier("CompanyNotesTableViewCell", forIndexPath: indexPath) as! CompanyNotesTableViewCell
         
         cell.accessoryView = UIImageView(image: UIImage(named: "More Than-50")!)
 
-        // 4
         let company = companies[indexPath.row]
 
         cell.nameLabel.text = company.name
         cell.photoView.image = company.photo
         cell.aboutLabel.text = company.about
-        
-        
-        // 5
+    
         return cell
     }
     

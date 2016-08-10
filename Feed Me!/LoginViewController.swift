@@ -15,11 +15,15 @@ import ParseFacebookUtilsV4
 class LoginViewController: PFLogInViewController {
     
     var parseLoginHelper: ParseLoginHelper!
+    let logoLogin = UILabel()
+    var count: Int = 0
+    var moveUp: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let logoLogin = UILabel()
+        self.signUpController = SignUpViewController()
+        
         logoLogin.text = "Feed Me!"
         logoLogin.textColor = UIColor.whiteColor()
         logoLogin.font = UIFont(name: "Arial", size: 60)
@@ -29,22 +33,10 @@ class LoginViewController: PFLogInViewController {
         logInView?.logo = logoLogin
         logInView?.contentMode = .ScaleAspectFit
         
-        let logoSign = UILabel()
-        logoSign.text = "Sign Up!"
-        logoSign.textColor = UIColor.whiteColor()
-        logoSign.font = UIFont(name: "Arial", size: 40)
-        logoSign.shadowColor = UIColor.lightGrayColor()
-        logoSign.shadowOffset = CGSizeMake(3,3)
-        
-        signUpController?.signUpView?.logo = logoSign
-        signUpController?.signUpView?.contentMode = .ScaleAspectFit
-        
         logInView?.logInButton?.setBackgroundImage(nil, forState: .Normal)
-        logInView?.logInButton?.backgroundColor = UIColor(red: 52/255, green: 191/255, blue: 73/255, alpha: 1)
+        logInView?.logInButton?.backgroundColor = UIColor(red: 0.0/255, green: 180/255, blue: 220/255, alpha: 1)
         logInView?.passwordForgottenButton?.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         
-        signUpController?.signUpView?.signUpButton?.setBackgroundImage(nil, forState: .Normal)
-        signUpController?.signUpView?.signUpButton?.backgroundColor = UIColor(red: 200/255, green: 100/255, blue: 200/255, alpha: 1)
         customizeButton(logInView?.facebookButton!)
         customizeButton(logInView?.signUpButton!)
     }
@@ -56,18 +48,50 @@ class LoginViewController: PFLogInViewController {
         button.layer.borderWidth = 1
         button.layer.borderColor = UIColor.whiteColor().CGColor
     }
-
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+
+        logInView?.logInButton!.alpha = 0.0
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        self.logInView?.logo!.center.y -= self.view.bounds.width
+        self.moveUp = true
+
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+
+        if moveUp == false {
+            self.logInView?.logo!.center.y -= self.view.bounds.width
+        }
+        UIView.animateWithDuration(2.0, animations: {
+            self.logoLogin.center.y += self.view.bounds.width
+        })
+        
+        
+        UIView.animateWithDuration(1.0, delay: 2.0, options: [], animations: {
+            self.logInView?.logInButton!.alpha = 1.0
+            }, completion: nil)
+    }
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+     
         
         let motionView: PanoramaView = PanoramaView(frame: self.view.bounds)
         motionView.setImage(UIImage(named:"try")!)
         logInView!.insertSubview(motionView, atIndex: 0)
         
-        let signUpView: PanoramaView = PanoramaView(frame: self.view.bounds)
-        signUpView.setImage(UIImage(named:"hand")!)
-        signUpController?.signUpView?.insertSubview(signUpView, atIndex: 0)
+        let signMotionView: PanoramaView = PanoramaView(frame: self.view.bounds)
+        signMotionView.setImage(UIImage(named:"blur")!)
+        signUpController!.signUpView?.insertSubview(signMotionView, atIndex: 0)
     }
-    
+
 }
+    
+

@@ -26,6 +26,15 @@ class DonateViewController: UIViewController, UITextFieldDelegate, BTDropInViewC
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.navigationBar.translucent = false
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.0/255.0, green:180/255.0, blue:220/255.0, alpha: 1.0)
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        
+        let proceedButton: UIBarButtonItem = UIBarButtonItem(title: "Proceed", style: .Plain, target: self, action: #selector(self.goCheckout))
+            self.navigationItem.rightBarButtonItem = proceedButton
+        
+        self.navigationItem.rightBarButtonItem?.tintColor = UIColor.whiteColor()
+        
         let clientTokenURL = NSURL(string: "https://feed-me-application.herokuapp.com/client_token")!
         let clientTokenRequest = NSMutableURLRequest(URL: clientTokenURL)
         clientTokenRequest.setValue("text/plain", forHTTPHeaderField: "Accept")
@@ -103,8 +112,7 @@ class DonateViewController: UIViewController, UITextFieldDelegate, BTDropInViewC
     }
     
     
-    @IBAction func proceedButton(sender: UIBarButtonItem) {
-        
+    func goCheckout() {
         if canProceed == true {
             self.tappedMyPayButton()
         }
@@ -113,8 +121,7 @@ class DonateViewController: UIViewController, UITextFieldDelegate, BTDropInViewC
 
         }
     }
-    
-    
+
     @IBAction func changeAmount(sender: UISegmentedControl) {
         switch amountDonation.selectedSegmentIndex {
         case 0:
@@ -127,8 +134,6 @@ class DonateViewController: UIViewController, UITextFieldDelegate, BTDropInViewC
             break;
         }
     }
-
-    
 }
 
 
