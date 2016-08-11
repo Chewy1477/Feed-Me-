@@ -82,6 +82,7 @@ extension ParseLoginHelper : PFSignUpViewControllerDelegate {
         
         signUpController.minPasswordLength = 6
         self.callback(user,nil)
+        
 
     }
 }

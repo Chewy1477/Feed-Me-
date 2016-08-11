@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		C30C137F1D53FAE700FC4354 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30C137E1D53FAE700FC4354 /* ProfileViewController.swift */; };
 		C31E5D3A1D554BA900B7F06C /* Slice.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31E5D391D554BA900B7F06C /* Slice.swift */; };
-		C31E5D3E1D56B05800B7F06C /* BillingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31E5D3D1D56B05800B7F06C /* BillingViewController.swift */; };
+		C31E5D3E1D56B05800B7F06C /* DonateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31E5D3D1D56B05800B7F06C /* DonateViewController.swift */; };
 		C33F49EC1D3435B000D1CC81 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33F49EB1D3435B000D1CC81 /* AppDelegate.swift */; };
 		C33F49F11D3435B000D1CC81 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C33F49EF1D3435B000D1CC81 /* Main.storyboard */; };
 		C33F49F31D3435B000D1CC81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C33F49F21D3435B000D1CC81 /* Assets.xcassets */; };
@@ -28,7 +28,6 @@
 		C37AE2DE1D359C7500F3C0B0 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37AE2DD1D359C7500F3C0B0 /* UserViewController.swift */; };
 		C38B5FA01D39753600440B0C /* PhotoTakingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38B5F9F1D39753600440B0C /* PhotoTakingHelper.swift */; };
 		C38E7BCF1D53C9CD0044EBFC /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38E7BCE1D53C9CD0044EBFC /* AboutViewController.swift */; };
-		C391594D1D49522B00B2315E /* DonateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C391594C1D49522B00B2315E /* DonateViewController.swift */; };
 		C3EB81CD1D42E19F000345C7 /* PanoramaIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EB81CB1D42E19F000345C7 /* PanoramaIndicator.swift */; };
 		C3EB81CE1D42E19F000345C7 /* PanoramaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EB81CC1D42E19F000345C7 /* PanoramaView.swift */; };
 		D494E3BB9F1CBB98CA2F430B /* Pods_Feed_Me_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A4CAB8F47B73EE4AE9772B /* Pods_Feed_Me_.framework */; };
@@ -40,7 +39,7 @@
 		5CCAD3E8B20EFAD3EBF8E459 /* Pods-Feed Me!.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Feed Me!.release.xcconfig"; path = "Pods/Target Support Files/Pods-Feed Me!/Pods-Feed Me!.release.xcconfig"; sourceTree = "<group>"; };
 		C30C137E1D53FAE700FC4354 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		C31E5D391D554BA900B7F06C /* Slice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Slice.swift; sourceTree = "<group>"; };
-		C31E5D3D1D56B05800B7F06C /* BillingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillingViewController.swift; sourceTree = "<group>"; };
+		C31E5D3D1D56B05800B7F06C /* DonateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DonateViewController.swift; sourceTree = "<group>"; };
 		C32BDE401D35B78F0096678F /* Feed-Me-Bridgin-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Feed-Me-Bridgin-Header.h"; sourceTree = "<group>"; };
 		C33F49E81D3435B000D1CC81 /* Feed Me!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Feed Me!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C33F49EB1D3435B000D1CC81 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -63,7 +62,6 @@
 		C37AE2DD1D359C7500F3C0B0 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		C38B5F9F1D39753600440B0C /* PhotoTakingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoTakingHelper.swift; sourceTree = "<group>"; };
 		C38E7BCE1D53C9CD0044EBFC /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
-		C391594C1D49522B00B2315E /* DonateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DonateViewController.swift; sourceTree = "<group>"; };
 		C3EB81CB1D42E19F000345C7 /* PanoramaIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanoramaIndicator.swift; sourceTree = "<group>"; };
 		C3EB81CC1D42E19F000345C7 /* PanoramaView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanoramaView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -175,13 +173,12 @@
 		C37AE2DA1D359C4400F3C0B0 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				C391594C1D49522B00B2315E /* DonateViewController.swift */,
 				C35EAB501D3863D9000F59A5 /* LoginViewController.swift */,
 				C37AE2DD1D359C7500F3C0B0 /* UserViewController.swift */,
 				C34E11A31D3E9DD500643482 /* CompanyNotesTableViewController.swift */,
 				C38E7BCE1D53C9CD0044EBFC /* AboutViewController.swift */,
 				C30C137E1D53FAE700FC4354 /* ProfileViewController.swift */,
-				C31E5D3D1D56B05800B7F06C /* BillingViewController.swift */,
+				C31E5D3D1D56B05800B7F06C /* DonateViewController.swift */,
 				C35E686B1D5A8767008504E6 /* SignUpViewController.swift */,
 			);
 			name = "View Controllers";
@@ -346,11 +343,10 @@
 				C38B5FA01D39753600440B0C /* PhotoTakingHelper.swift in Sources */,
 				C34E11A01D3E98B500643482 /* CompanyNotesTableViewCell.swift in Sources */,
 				C38E7BCF1D53C9CD0044EBFC /* AboutViewController.swift in Sources */,
-				C31E5D3E1D56B05800B7F06C /* BillingViewController.swift in Sources */,
+				C31E5D3E1D56B05800B7F06C /* DonateViewController.swift in Sources */,
 				C35EAB431D37064E000F59A5 /* ParseLoginHelper.swift in Sources */,
 				C35E686C1D5A8768008504E6 /* SignUpViewController.swift in Sources */,
 				C33F49EC1D3435B000D1CC81 /* AppDelegate.swift in Sources */,
-				C391594D1D49522B00B2315E /* DonateViewController.swift in Sources */,
 				C34E11A71D3EBE6E00643482 /* Company.swift in Sources */,
 				C34E11A41D3E9DD500643482 /* CompanyNotesTableViewController.swift in Sources */,
 				C35EAB0F1D36DED7000F59A5 /* ErrorHandling.swift in Sources */,
@@ -479,7 +475,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.chc3cc.feed-me";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "7a880e77-e439-4591-9412-7b5e49053835";
 				SWIFT_OBJC_BRIDGING_HEADER = "Feed-Me-Bridgin-Header.h";
 			};
 			name = Debug;
@@ -499,7 +495,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.chc3cc.feed-me";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "7a880e77-e439-4591-9412-7b5e49053835";
 				SWIFT_OBJC_BRIDGING_HEADER = "Feed-Me-Bridgin-Header.h";
 			};
 			name = Release;

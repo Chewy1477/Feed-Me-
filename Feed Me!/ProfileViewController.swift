@@ -31,9 +31,9 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         self.profileAge.delegate = self
         self.profileFood.delegate = self
         
-        IconHelper.createIcon(profileName, image: "Dog Tag-50")
-        IconHelper.createIcon(profileAge, image: "Age-50")
-        IconHelper.createIcon(profileFood, image: "About-50")
+        IconHelper.createIcon(profileName, image: "Name")
+        IconHelper.createIcon(profileAge, image: "Birthday")
+        IconHelper.createIcon(profileFood, image: "Spoon")
         
         profileImage.image = UIImage(named: "pic")
         

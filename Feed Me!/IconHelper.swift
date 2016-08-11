@@ -17,6 +17,7 @@ class IconHelper {
         imageView.image = selected
         text.leftView = imageView
         text.leftViewMode = UITextFieldViewMode.Always
+        
     }
 }
 

@@ -1,39 +1,69 @@
 //
-//  DonateViewControllerDelegate.swift
+//  BillingViewController.swift
 //  Feed Me!
 //
-//  Created by Administrator on 7/27/16.
+//  Created by Administrator on 8/6/16.
 //  Copyright © 2016 Chris Chueh. All rights reserved.
 //
 
-import Braintree
-import IQDropDownTextField
+import Foundation
 import UIKit
+import IQDropDownTextField
+import Parse
+import Braintree
 
-
-class DonateViewController: UIViewController, UITextFieldDelegate, BTDropInViewControllerDelegate {
+class DonateViewController: UIViewController, UITextFieldDelegate, IQDropDownTextFieldDelegate, BTDropInViewControllerDelegate {
     
+    let user = PFUser.currentUser()
     var braintreeClient: BTAPIClient?
     var clientToken: String!
     var amount: String = "1"
-    var checkSubmit: Bool = false
-    var canProceed: Bool = false
+    var checkProceed: Bool = false
 
-
-    @IBOutlet weak var amountDonation: UISegmentedControl!
-
+    
+    @IBOutlet weak var lastName: UITextField!
+    @IBOutlet weak var firstName: UITextField!
+    @IBOutlet weak var phoneNumber: UITextField!
+    @IBOutlet weak var cityField: UITextField!
+    @IBOutlet weak var stateField: IQDropDownTextField!
+    @IBOutlet weak var recipientField: IQDropDownTextField!
+    
+    @IBOutlet weak var amountPick: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.navigationBar.translucent = false
-        self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.0/255.0, green:180/255.0, blue:220/255.0, alpha: 1.0)
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        self.firstName.delegate = self
+        self.lastName.delegate = self
+        self.phoneNumber.delegate = self
+        self.stateField.delegate = self
+        self.recipientField.delegate = self
         
-        let proceedButton: UIBarButtonItem = UIBarButtonItem(title: "Proceed", style: .Plain, target: self, action: #selector(self.goCheckout))
-            self.navigationItem.rightBarButtonItem = proceedButton
+        stateField.isOptionalDropDown = false
+        recipientField.isOptionalDropDown = false
         
-        self.navigationItem.rightBarButtonItem?.tintColor = UIColor.whiteColor()
+        stateField.itemList = ["Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts","Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"]
+        
+        recipientField.itemList = ["Pizza Hut", "Panera Bread", "Dominoes"]
+        
+        let tapRecognizer = UITapGestureRecognizer()
+        tapRecognizer.addTarget(self, action: #selector(DonateViewController.didTapView))
+        self.view.addGestureRecognizer(tapRecognizer)
+        
+        let iqToolbar = UIToolbar(frame: CGRectMake(0, 0, self.view.frame.size.width, 50))
+        iqToolbar.items = [UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(self.doneEditing))]
+        iqToolbar.sizeToFit()
+        
+        recipientField.inputAccessoryView = iqToolbar
+        stateField.inputAccessoryView = iqToolbar
+        
+        IconHelper.createIcon(firstName, image: "Name")
+        IconHelper.createIcon(lastName, image: "Name")
+        IconHelper.createIcon(phoneNumber, image: "Phone")
+        IconHelper.createIcon(cityField, image: "3")
+        IconHelper.createIcon(stateField, image: "US")
+        IconHelper.createIcon(recipientField, image: "Feedback")
+        
         
         let clientTokenURL = NSURL(string: "https://feed-me-application.herokuapp.com/client_token")!
         let clientTokenRequest = NSMutableURLRequest(URL: clientTokenURL)
@@ -46,17 +76,15 @@ class DonateViewController: UIViewController, UITextFieldDelegate, BTDropInViewC
             // As an example, you may wish to present our Drop-in UI at this point.
             // Continue to the next section to learn more...
             }.resume()
-        
+
+
     }
     
     override func viewDidAppear(animated: Bool) {
-        if checkSubmit == true {
-            self.alert("Complete!", message: "Information Submitted.")
-            checkSubmit = false
-        }
+        self.retrieveText()
     }
     
-
+    
     func dropInViewController(viewController: BTDropInViewController,
                               didSucceedWithTokenization paymentMethodNonce: BTPaymentMethodNonce)
     {
@@ -68,7 +96,7 @@ class DonateViewController: UIViewController, UITextFieldDelegate, BTDropInViewC
     func dropInViewControllerDidCancel(viewController: BTDropInViewController) {
         dismissViewControllerAnimated(true, completion: nil)
     }
-
+    
     func postNonceToServer(paymentMethodNonce: String, amount: String) {
         let paymentURL = NSURL(string: "https://feed-me-application.herokuapp.com/payment")!
         let request = NSMutableURLRequest(URL: paymentURL)
@@ -101,29 +129,84 @@ class DonateViewController: UIViewController, UITextFieldDelegate, BTDropInViewC
         
         presentViewController(navigationController, animated: true, completion: nil)
     }
-
+    
     func userDidCancelPayment() {
         dismissViewControllerAnimated(true, completion: nil)
     }
 
-    @IBAction func fillButton(sender: UIButton) {
-        let billing = self.storyboard!.instantiateViewControllerWithIdentifier("BillingViewController")
-        self.presentViewController(billing, animated: true, completion: nil)
+
+    
+    func didTapView(){
+        self.view.endEditing(true)
     }
     
+    func doneEditing(CardTypeTextField: IQDropDownTextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
     
-    func goCheckout() {
-        if canProceed == true {
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true);
+        return false;
+    }
+    
+    func saveText() {
+        let saveFirst = self.firstName.text
+        let saveLast = self.lastName.text
+        let savePhone = self.phoneNumber.text
+        let saveCity = self.cityField.text
+        let saveState = self.stateField.selectedItem
+        let saveRecipient = self.recipientField.selectedItem
+        
+        user!.setObject(saveFirst!, forKey: "First")
+        user!.setObject(saveLast!, forKey: "Last")
+        user!.setObject(savePhone!, forKey: "Phone")
+        user!.setObject(saveCity!, forKey: "City")
+        user!.setObject(saveState!, forKey: "State")
+        user!.setObject(saveRecipient!, forKey: "Recipient")
+        
+
+        user!.saveInBackgroundWithBlock(nil)
+    }
+    
+    func retrieveText() {
+        guard let firstGet = (user?["First"] as! String?), lastGet = (user?["Last"] as! String?), phoneGet = (user?["Phone"] as! String?), cityGet = (user?["City"] as! String?), stateGet = (user?["State"] as! String?), recipientGet = (user?["Recipient"] as! String?)  else {
+            return
+        }
+
+        self.firstName.text = firstGet
+        self.lastName.text = lastGet
+        self.phoneNumber.text = phoneGet
+        self.cityField.text = cityGet
+        self.stateField.selectedItem = stateGet
+        self.recipientField.selectedItem = recipientGet
+        
+    }
+
+    
+    @IBAction func submitButton(sender: UIButton) {
+        if firstName.isValidEntry() && lastName.isValidEntry() && phoneNumber.isValidEntry() && cityField.isValidEntry() {
+            self.saveText()
+            self.alert("Information Saved!", message: "Click the arrow the proceed.")
+            checkProceed = true
+
+        }
+        else {
+            self.alert("Oops!", message: "Please fill in every field.")
+        }
+    }
+    @IBAction func proceedButton(sender: AnyObject) {
+        if checkProceed == true {
             self.tappedMyPayButton()
         }
         else {
-            self.alert("Oops!", message: "Please click the pencil.")
-
+            self.alert("Oops!", message: "Please fill out the information.")
         }
     }
-
-    @IBAction func changeAmount(sender: UISegmentedControl) {
-        switch amountDonation.selectedSegmentIndex {
+    
+    
+    @IBAction func changeAmount(sender: AnyObject) {
+        switch amountPick.selectedSegmentIndex {
         case 0:
             amount = "1"
         case 1:
@@ -135,7 +218,19 @@ class DonateViewController: UIViewController, UITextFieldDelegate, BTDropInViewC
         }
     }
 }
+    
 
+
+extension UITextField {
+    
+    func isValidEntry() -> Bool {
+        if self.text != nil && self.text != "" {
+            return true
+        } else {
+            return false
+        }
+    }
+}
 
 extension UIViewController {
     
