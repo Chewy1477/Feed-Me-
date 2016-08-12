@@ -81,6 +81,10 @@ extension ParseLoginHelper : PFSignUpViewControllerDelegate {
     func signUpViewController(signUpController: PFSignUpViewController, didSignUpUser user: PFUser) {
         
         signUpController.minPasswordLength = 6
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let tabBarController = storyboard.instantiateViewControllerWithIdentifier("TabBarController")
+        signUpController.presentViewController(tabBarController, animated:true, completion:nil)
         self.callback(user,nil)
         
 

@@ -72,9 +72,7 @@ class DonateViewController: UIViewController, UITextFieldDelegate, IQDropDownTex
         NSURLSession.sharedSession().dataTaskWithRequest(clientTokenRequest) { [unowned self] (data, response, error) -> Void in
             // TODO: Handle errors
             self.clientToken = NSString(data: data!, encoding: NSUTF8StringEncoding) as! String
-            
-            // As an example, you may wish to present our Drop-in UI at this point.
-            // Continue to the next section to learn more...
+
             }.resume()
 
 
@@ -109,18 +107,12 @@ class DonateViewController: UIViewController, UITextFieldDelegate, IQDropDownTex
     }
     
     func tappedMyPayButton() {
-        // If you haven't already, create and retain a `BTAPIClient` instance with a
-        // tokenization key OR a client token from your server.
-        // Typically, you only need to do this once per session.
+
         braintreeClient = BTAPIClient(authorization: clientToken)
         
-        // Create a BTDropInViewController
         let dropInViewController = BTDropInViewController(APIClient: braintreeClient!)
         dropInViewController.delegate = self
-        // This is where you might want to customize your view controller (see below)
-        
-        // The way you present your BTDropInViewController instance is up to you.
-        // In this example, we wrap it in a new, modally-presented navigation controller:
+
         dropInViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(
             barButtonSystemItem: UIBarButtonSystemItem.Cancel,
             target: self, action: #selector(DonateViewController.userDidCancelPayment))
