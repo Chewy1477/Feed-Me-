@@ -26,7 +26,6 @@ class PhotoTakingHelper: NSObject {
     }
     
     func showPhotoSourceSelection() {
-        // Allow user to choose between photo library and camera
         let alertController = UIAlertController(title: nil, message: "Where do you want to get your picture from?", preferredStyle: .ActionSheet)
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
@@ -39,7 +38,6 @@ class PhotoTakingHelper: NSObject {
         alertController.addAction(photoLibraryAction)
         
         
-        // Only show camera option if rear camera is available
         if (UIImagePickerController.isCameraDeviceAvailable(.Rear)) {
             let cameraAction = UIAlertAction(title: "Photo from Camera", style: .Default) { (action) in
                 self.showImagePickerController(.Camera)

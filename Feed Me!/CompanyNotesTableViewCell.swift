@@ -10,7 +10,6 @@ import UIKit
 
 class CompanyNotesTableViewCell: UITableViewCell {
     
-    // MARK: Properties
     
     @IBOutlet weak var aboutLabel: UILabel!
     @IBOutlet weak var photoView: UIImageView!
@@ -20,7 +19,6 @@ class CompanyNotesTableViewCell: UITableViewCell {
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected,animated: animated)
 
-        // Configure the view for the selected state
     }
    
     

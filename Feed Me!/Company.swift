@@ -14,10 +14,7 @@ class Company {
     var photo: UIImage?
     var about: String
     
-    // MARK: Initialization
-    
     init(name: String, photo: UIImage?, about: String) {
-        // Initialize stored properties.
         self.name = name
         self.photo = photo
         self.about = about

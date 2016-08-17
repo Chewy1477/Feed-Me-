@@ -95,7 +95,6 @@ extension LocateCompanyViewController : CLLocationManagerDelegate {
 extension LocateCompanyViewController : MKMapViewDelegate {
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView?{
         if annotation is MKUserLocation {
-            //return nil so map view draws "blue dot" for standard user location
             return nil
         }
         let reuseId = "pin"
@@ -114,9 +113,7 @@ extension LocateCompanyViewController : MKMapViewDelegate {
 
 extension LocateCompanyViewController: HandleMapSearch {
     func dropPinZoomIn(placemark:MKPlacemark){
-        // cache the pin
         selectedPin = placemark
-        // clear existing pins
         mapView!.removeAnnotations(mapView!.annotations)
         let annotation = MKPointAnnotation()
         annotation.coordinate = placemark.coordinate

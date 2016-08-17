@@ -26,7 +26,6 @@ class SignUpViewController: PFSignUpViewController {
 
         signUpView?.logo = logoSign
         signUpView?.contentMode = .ScaleAspectFit
-        // Do any additional setup after loading the view.
         
         signUpView?.signUpButton?.setBackgroundImage(nil, forState: .Normal)
         signUpView?.signUpButton?.backgroundColor = UIColor(red: 0/255, green: 180/255, blue: 220/255, alpha: 1)

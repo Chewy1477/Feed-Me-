@@ -64,6 +64,9 @@ class DonateViewController: UIViewController, UITextFieldDelegate, IQDropDownTex
         IconHelper.createIcon(stateField, image: "US")
         IconHelper.createIcon(recipientField, image: "Feedback")
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(DonateViewController.keyboardUp(_:)), name: UIKeyboardWillShowNotification, object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(DonateViewController.keyboardDown(_:)), name: UIKeyboardWillHideNotification, object: nil)
         
         let clientTokenURL = NSURL(string: "https://feed-me-application.herokuapp.com/client_token")!
         let clientTokenRequest = NSMutableURLRequest(URL: clientTokenURL)
@@ -82,11 +85,22 @@ class DonateViewController: UIViewController, UITextFieldDelegate, IQDropDownTex
         self.retrieveText()
     }
     
+    func keyboardUp(notification: NSNotification) {
+        if ((notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue()) != nil{
+            self.view.frame.origin.y = 0
+            self.view.frame.origin.y -= 180
+        }
+    }
+
+    func keyboardDown(notification: NSNotification) {
+        if ((notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue()) != nil{
+            self.view.frame.origin.y = 0
+        }
+    }
     
     func dropInViewController(viewController: BTDropInViewController,
                               didSucceedWithTokenization paymentMethodNonce: BTPaymentMethodNonce)
     {
-        // Send payment method nonce to your server for processing
         postNonceToServer(paymentMethodNonce.nonce, amount: amount)
         dismissViewControllerAnimated(true, completion: nil)
     }
@@ -187,6 +201,7 @@ class DonateViewController: UIViewController, UITextFieldDelegate, IQDropDownTex
             self.alert("Oops!", message: "Please fill in every field.")
         }
     }
+    
     @IBAction func proceedButton(sender: AnyObject) {
         if checkProceed == true {
             self.tappedMyPayButton()
