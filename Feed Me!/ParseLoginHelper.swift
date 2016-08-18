@@ -13,10 +13,6 @@ import ParseUI
 
 typealias ParseLoginHelperCallback = (PFUser?, NSError?) -> Void
 
-/**
- This class implements the 'PFLogInViewControllerDelegate' protocol. After a successfull login
- it will call the callback function and provide a 'PFUser' object.
- */
 class ParseLoginHelper : NSObject {
     static let errorDomain = "com.makeschool.parseloginhelpererrordomain"
     static let usernameNotFoundErrorCode = 1
@@ -35,33 +31,25 @@ extension ParseLoginHelper : PFLogInViewControllerDelegate {
     
     
     func logInViewController(logInController: PFLogInViewController, didLogInUser user: PFUser) {
-        // Determine if this is a Facebook login
         let isFacebookLogin = FBSDKAccessToken.currentAccessToken() != nil
         
         if !isFacebookLogin {
-            // Plain parse login, we can return user immediately
             self.callback(user, nil)
 
             
         } else {
-            // if this is a Facebook login, fetch the username from Facebook
             FBSDKGraphRequest(graphPath: "me", parameters: nil).startWithCompletionHandler {
                 (connection: FBSDKGraphRequestConnection!, result: AnyObject?, error: NSError?) -> Void in
                 if let error = error {
-                    // Facebook Error? -> hand error to callback
                     self.callback(nil, error)
                 }
                 
                 if let fbUsername = result?["name"] as? String {
-                    // assign Facebook name to PFUser
                     user.username = fbUsername
-                    // store PFUser
                     user.saveInBackgroundWithBlock({ (success, error) -> Void in
                         if (success) {
-                            // updated username could be stored -> call success
                             self.callback(user, error)
                         } else {
-                            // updating username failed -> hand error to callback
                             self.callback(nil, error)
                         }
                     })
